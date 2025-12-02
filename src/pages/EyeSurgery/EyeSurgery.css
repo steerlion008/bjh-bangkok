@@ -1,0 +1,464 @@
+/* Eye Surgery Page Styles */
+.eye-surgery-page {
+  padding-top: 80px;
+}
+
+/* Service Hero */
+.service-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.service-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0.2;
+}
+
+.service-hero .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.service-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.service-hero .hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.service-hero .hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta .btn {
+  padding: 14px 30px;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: var(--primary-blue);
+}
+
+/* USP Section */
+.usp-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+}
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.usp-item {
+  text-align: center;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.usp-icon {
+  width: 50px;
+  height: 50px;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.usp-item h3 {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.usp-item p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Pricing Section */
+.pricing-section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.pricing-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card.popular {
+  border-color: var(--primary-blue);
+  transform: scale(1.05);
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pricing-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.pricing-header .subtitle {
+  color: #888;
+  font-size: 1rem;
+}
+
+.pricing-price {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.original-price {
+  display: block;
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 5px;
+}
+
+.current-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.currency {
+  font-size: 1rem;
+  color: #666;
+  margin-left: 5px;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.pricing-features li svg {
+  color: #28a745;
+  flex-shrink: 0;
+}
+
+.pricing-card .btn {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Bonus Section */
+.bonus-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.bonus-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.bonus-card:hover {
+  transform: translateY(-3px);
+}
+
+.bonus-card h3 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.bonus-card .description {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.bonus-price {
+  color: var(--primary-blue);
+}
+
+.bonus-price .price {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* Doctors Section */
+.doctors-section {
+  padding: 80px 0;
+}
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.doctor-card {
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  background: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-image .placeholder-image {
+  color: var(--primary-blue);
+}
+
+.doctor-info h3 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.doctor-info .specialty {
+  color: var(--primary-blue);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.doctor-info .experience {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  color: #fff;
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-white {
+  background: #fff;
+  color: var(--primary-blue);
+  padding: 14px 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-white:hover {
+  background: #f0f4f8;
+}
+
+.btn-outline-white {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 14px 30px;
+}
+
+.btn-outline-white:hover {
+  background: #fff;
+  color: var(--primary-blue);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .usp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .pricing-card.popular {
+    transform: none;
+  }
+
+  .bonus-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-hero {
+    min-height: 50vh;
+  }
+
+  .service-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .service-hero .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .usp-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .usp-item {
+    padding: 20px;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .doctors-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 1.75rem;
+  }
+}

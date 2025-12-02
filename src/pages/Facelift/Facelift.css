@@ -1,0 +1,70 @@
+/* Facelift Page Styles */
+.facelift-page {
+  padding-top: 80px;
+}
+
+.facelift-hero {
+  background: linear-gradient(135deg, #3d6b8c 0%, #5a8fb0 100%);
+}
+
+/* Why Choose Section */
+.why-choose-section {
+  padding: 80px 0;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.why-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px 0;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.why-list li svg {
+  color: #28a745;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.placeholder-image-large {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #e8f0f5 0%, #d0e0eb 100%);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: var(--primary-blue);
+}
+
+.placeholder-image-large span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .why-image {
+    order: -1;
+  }
+}

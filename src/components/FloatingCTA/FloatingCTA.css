@@ -1,0 +1,50 @@
+.floating-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .floating-cta {
+    display: flex;
+  }
+}
+
+.cta-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.call-btn {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.call-btn:hover {
+  background: var(--primary-blue-light);
+}
+
+.chat-btn {
+  background: #06c755;
+  color: #fff;
+}
+
+.chat-btn:hover {
+  background: #05b34a;
+}
