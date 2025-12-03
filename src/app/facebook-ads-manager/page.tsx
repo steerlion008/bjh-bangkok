@@ -291,8 +291,12 @@ export default function FacebookAdsManagerPage() {
     total_messaging_first_reply: 0,
     total_messaging_connection: 0,
   });
-  const [page2SortBy, setPage2SortBy] = useState<"spend" | "clicks" | "impressions" | "ctr" | "cpc" | "cpm">("spend");
-  const [page2Limit, setPage2Limit] = useState<5 | 10 | 15 | 20 | 30 | "all">(20);
+  const [page2SortBy, setPage2SortBy] = useState<
+    "spend" | "clicks" | "impressions" | "ctr" | "cpc" | "cpm"
+  >("spend");
+  const [page2Limit, setPage2Limit] = useState<5 | 10 | 15 | 20 | 30 | "all">(
+    20
+  );
 
   // Page 2 Balance State
   const [page2Balance, setPage2Balance] = useState<number>(0);
@@ -450,8 +454,8 @@ export default function FacebookAdsManagerPage() {
           viewMode === "campaigns"
             ? "campaign"
             : viewMode === "adsets"
-              ? "adset"
-              : "ad";
+            ? "adset"
+            : "ad";
         let url = `https://believable-ambition-production.up.railway.app/api/facebook-ads-campaigns?level=${levelParam}`;
         const filtering = JSON.stringify([
           {
@@ -484,7 +488,8 @@ export default function FacebookAdsManagerPage() {
         ) {
           const retryDelay = Math.min(30000 * Math.pow(2, retryCount), 120000); // Exponential backoff: 30s, 60s, 120s
           setError(
-            `⏳ API Rate Limit - จะรีเฟรชอัตโนมัติในอีก ${retryDelay / 1000
+            `⏳ API Rate Limit - จะรีเฟรชอัตโนมัติในอีก ${
+              retryDelay / 1000
             } วินาที... (ครั้งที่ ${retryCount + 1})`
           );
 
@@ -521,7 +526,7 @@ export default function FacebookAdsManagerPage() {
                 if (existingAction) {
                   existingAction.value = String(
                     parseInt(existingAction.value || "0") +
-                    parseInt(action.value || "0")
+                      parseInt(action.value || "0")
                   );
                 } else {
                   existing.actions!.push({ ...action });
@@ -537,7 +542,7 @@ export default function FacebookAdsManagerPage() {
                 if (existingConversion) {
                   existingConversion.value = String(
                     parseInt(existingConversion.value || "0") +
-                    parseInt(conversion.value || "0")
+                      parseInt(conversion.value || "0")
                   );
                 } else {
                   existing.conversions!.push({ ...conversion });
@@ -853,7 +858,7 @@ export default function FacebookAdsManagerPage() {
                 if (existingAction) {
                   existingAction.value = String(
                     parseInt(existingAction.value || "0") +
-                    parseInt(action.value || "0")
+                      parseInt(action.value || "0")
                   );
                 } else {
                   existing.actions!.push({ ...action });
@@ -939,11 +944,26 @@ export default function FacebookAdsManagerPage() {
           totalImpressions: result.summary?.total_impressions || 0,
           totalClicks: result.summary?.total_clicks || 0,
           totalAds: result.data?.length || 0,
-          avgCtr: result.summary?.total_impressions > 0 ? (result.summary?.total_clicks / result.summary?.total_impressions) * 100 : 0,
-          avgCpc: result.summary?.total_clicks > 0 ? result.summary?.total_spend / result.summary?.total_clicks : 0,
-          avgCpm: result.summary?.total_impressions > 0 ? (result.summary?.total_spend / result.summary?.total_impressions) * 1000 : 0,
-          total_messaging_first_reply: result.summary?.total_messaging_first_reply || 0,
-          total_messaging_connection: result.summary?.total_messaging_connection || 0,
+          avgCtr:
+            result.summary?.total_impressions > 0
+              ? (result.summary?.total_clicks /
+                  result.summary?.total_impressions) *
+                100
+              : 0,
+          avgCpc:
+            result.summary?.total_clicks > 0
+              ? result.summary?.total_spend / result.summary?.total_clicks
+              : 0,
+          avgCpm:
+            result.summary?.total_impressions > 0
+              ? (result.summary?.total_spend /
+                  result.summary?.total_impressions) *
+                1000
+              : 0,
+          total_messaging_first_reply:
+            result.summary?.total_messaging_first_reply || 0,
+          total_messaging_connection:
+            result.summary?.total_messaging_connection || 0,
         });
       }
     } catch (err) {
@@ -965,7 +985,9 @@ export default function FacebookAdsManagerPage() {
         setPage2Balance(0);
         setPage2AmountSpent(0);
       } else {
-        setPage2Balance(result.data.available_balance || result.data.balance || 0);
+        setPage2Balance(
+          result.data.available_balance || result.data.balance || 0
+        );
         setPage2AmountSpent(result.data.amount_spent || 0);
         setPage2Currency(result.data.currency || "THB");
       }
@@ -1041,18 +1063,18 @@ export default function FacebookAdsManagerPage() {
     return isNaN(num)
       ? "—"
       : `฿${num.toLocaleString("th-TH", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}`;
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`;
   };
   const formatPercentage = (value: string | number) => {
     const num = typeof value === "string" ? parseFloat(value) : value;
     return isNaN(num)
       ? "—"
       : `${num.toLocaleString("th-TH", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}%`;
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}%`;
   };
   const getResultsByActionType = (
     actions: Action[] | undefined,
@@ -1195,55 +1217,61 @@ export default function FacebookAdsManagerPage() {
             </button>
             <button
               onClick={() => handleDateRangeChange("today")}
-              className={`px-3 sm:px-6 py-2 rounded-lg transition-colors font-medium text-xs sm:text-sm ${dateRange === "today"
-                ? "bg-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-3 sm:px-6 py-2 rounded-lg transition-colors font-medium text-xs sm:text-sm ${
+                dateRange === "today"
+                  ? "bg-blue-500 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               วันนี้
             </button>
             <button
               onClick={() => handleDateRangeChange("yesterday")}
-              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${dateRange === "yesterday"
-                ? "bg-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${
+                dateRange === "yesterday"
+                  ? "bg-blue-500 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               เมื่อวาน
             </button>
             <button
               onClick={() => handleDateRangeChange("last_7d")}
-              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${dateRange === "last_7d"
-                ? "bg-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${
+                dateRange === "last_7d"
+                  ? "bg-blue-500 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               7 วัน
             </button>
             <button
               onClick={() => handleDateRangeChange("last_30d")}
-              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${dateRange === "last_30d"
-                ? "bg-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${
+                dateRange === "last_30d"
+                  ? "bg-blue-500 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               30 วัน
             </button>
             <button
               onClick={() => handleDateRangeChange("this_month")}
-              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${dateRange === "this_month"
-                ? "bg-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${
+                dateRange === "this_month"
+                  ? "bg-blue-500 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               เดือนนี้
             </button>
             <button
               onClick={() => handleDateRangeChange("custom")}
-              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${dateRange === "custom"
-                ? "bg-blue-500 text-white shadow-md"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+              className={`px-6 py-2 rounded-lg transition-colors font-medium text-sm ${
+                dateRange === "custom"
+                  ? "bg-blue-500 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
             >
               🗓️ กำหนดเอง
             </button>
@@ -1258,37 +1286,41 @@ export default function FacebookAdsManagerPage() {
             <div className="flex items-center gap-2 border-l border-gray-300 pl-4 ml-2">
               <button
                 onClick={() => setSelectedPage(1)}
-                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${selectedPage === 1
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${
+                  selectedPage === 1
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
               >
                 Page 1
               </button>
               <button
                 onClick={() => setSelectedPage(2)}
-                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${selectedPage === 2
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${
+                  selectedPage === 2
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
               >
                 Page 2
               </button>
               <button
                 onClick={() => setSelectedPage(3)}
-                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${selectedPage === 3
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${
+                  selectedPage === 3
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
               >
                 Page 3
               </button>
               <button
                 onClick={() => setSelectedPage(4)}
-                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${selectedPage === 4
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                className={`px-4 py-2 rounded-lg transition-colors font-medium text-sm ${
+                  selectedPage === 4
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
               >
                 Page 4
               </button>
@@ -1507,7 +1539,9 @@ export default function FacebookAdsManagerPage() {
                     );
                   }
                   // ลองใช้ local video file ก่อน (จาก /images/video/{video_id}.mp4)
-                  const localVideoPath = videoId ? `/images/video/${videoId}.mp4` : null;
+                  const localVideoPath = videoId
+                    ? `/images/video/${videoId}.mp4`
+                    : null;
                   const videoSource = creative?.video_source;
 
                   // ถ้ามี videoId - ลองเล่นจาก local ก่อน
@@ -1522,7 +1556,9 @@ export default function FacebookAdsManagerPage() {
                             className="w-full h-auto max-h-[60vh]"
                             poster={thumbnailUrl}
                             onError={(e) => {
-                              console.log("❌ [Video Error] Local video not found, trying Facebook source");
+                              console.log(
+                                "❌ [Video Error] Local video not found, trying Facebook source"
+                              );
                               const videoEl = e.target as HTMLVideoElement;
                               // ถ้า local ไม่มี ลองใช้ video_source จาก Facebook
                               if (videoSource && videoEl.src !== videoSource) {
@@ -1544,7 +1580,10 @@ export default function FacebookAdsManagerPage() {
                               }
                             }}
                           >
-                            <source src={localVideoPath || videoSource || ''} type="video/mp4" />
+                            <source
+                              src={localVideoPath || videoSource || ""}
+                              type="video/mp4"
+                            />
                             เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
                           </video>
                         </div>
@@ -2090,14 +2129,21 @@ export default function FacebookAdsManagerPage() {
                           </tr>
                         ) : (
                           (() => {
-                            const dailyData = new Map<string, { spend: number }>();
+                            const dailyData = new Map<
+                              string,
+                              { spend: number }
+                            >();
                             dailySummaryData.forEach((ad) => {
                               const date = ad.date_start;
-                              const existing = dailyData.get(date) || { spend: 0 };
+                              const existing = dailyData.get(date) || {
+                                spend: 0,
+                              };
                               existing.spend += parseFloat(ad.spend || "0");
                               dailyData.set(date, existing);
                             });
-                            const sortedDates = Array.from(dailyData.keys()).sort(
+                            const sortedDates = Array.from(
+                              dailyData.keys()
+                            ).sort(
                               (a, b) =>
                                 new Date(b).getTime() - new Date(a).getTime()
                             );
@@ -2110,10 +2156,13 @@ export default function FacebookAdsManagerPage() {
                                   className="hover:bg-blue-50 border-b"
                                 >
                                   <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                    {new Date(date).toLocaleDateString("th-TH", {
-                                      month: "short",
-                                      day: "numeric",
-                                    })}
+                                    {new Date(date).toLocaleDateString(
+                                      "th-TH",
+                                      {
+                                        month: "short",
+                                        day: "numeric",
+                                      }
+                                    )}
                                   </td>
                                   <td className="px-2 py-2 text-center text-xs font-semibold text-blue-600">
                                     {formatCurrency(data.spend)}
@@ -2201,7 +2250,9 @@ export default function FacebookAdsManagerPage() {
                               );
                               dailyData.set(date, existing);
                             });
-                            const sortedDates = Array.from(dailyData.keys()).sort(
+                            const sortedDates = Array.from(
+                              dailyData.keys()
+                            ).sort(
                               (a, b) =>
                                 new Date(b).getTime() - new Date(a).getTime()
                             );
@@ -2214,10 +2265,13 @@ export default function FacebookAdsManagerPage() {
                                   className="hover:bg-teal-50 border-b"
                                 >
                                   <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                    {new Date(date).toLocaleDateString("th-TH", {
-                                      month: "short",
-                                      day: "numeric",
-                                    })}
+                                    {new Date(date).toLocaleDateString(
+                                      "th-TH",
+                                      {
+                                        month: "short",
+                                        day: "numeric",
+                                      }
+                                    )}
                                   </td>
                                   <td className="px-2 py-2 text-center text-xs font-semibold text-green-600">
                                     {data.newInbox}
@@ -2326,10 +2380,11 @@ export default function FacebookAdsManagerPage() {
                     <div className="flex gap-2 flex-1">
                       <button
                         onClick={() => setTopAdsSortBy("leads")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdsSortBy === "leads"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdsSortBy === "leads"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           💬 Total Inbox (มาก → น้อย)
@@ -2338,10 +2393,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setTopAdsSortBy("phone")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdsSortBy === "phone"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdsSortBy === "phone"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           📞 ชื่อ - เบอร์ (มาก → น้อย)
@@ -2350,10 +2406,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setTopAdsSortBy("cost")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdsSortBy === "cost"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdsSortBy === "cost"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           💰 ต้นทุน (น้อย → มาก)
@@ -2362,10 +2419,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setTopAdsSortBy("thruplay")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdsSortBy === "thruplay"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdsSortBy === "thruplay"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           🎬 ThruPlay (มาก → น้อย)
@@ -2457,8 +2515,10 @@ export default function FacebookAdsManagerPage() {
                             return totalInboxB - totalInboxA;
                           } else if (topAdsSortBy === "phone") {
                             // เรียงตาม ชื่อ - เบอร์ จากมากไปน้อย
-                            const phoneLeadsA = topAdsPhoneLeads.get(a.ad_id) || 0;
-                            const phoneLeadsB = topAdsPhoneLeads.get(b.ad_id) || 0;
+                            const phoneLeadsA =
+                              topAdsPhoneLeads.get(a.ad_id) || 0;
+                            const phoneLeadsB =
+                              topAdsPhoneLeads.get(b.ad_id) || 0;
                             return phoneLeadsB - phoneLeadsA;
                           } else if (topAdsSortBy === "thruplay") {
                             // เรียงตาม ThruPlay จากมากไปน้อย
@@ -2496,7 +2556,10 @@ export default function FacebookAdsManagerPage() {
                             return valueA - valueB;
                           }
                         })
-                        .slice(0, topAdsLimit === "all" ? undefined : topAdsLimit)
+                        .slice(
+                          0,
+                          topAdsLimit === "all" ? undefined : topAdsLimit
+                        )
                         .map((ad, index) => {
                           const creative = adCreatives.get(ad.ad_id);
                           console.log(
@@ -2506,12 +2569,12 @@ export default function FacebookAdsManagerPage() {
                             "| Creative:",
                             creative
                               ? {
-                                id: creative.id,
-                                has_thumbnail: !!creative.thumbnail_url,
-                                has_image: !!creative.image_url,
-                                thumbnail_preview:
-                                  creative.thumbnail_url?.substring(0, 60),
-                              }
+                                  id: creative.id,
+                                  has_thumbnail: !!creative.thumbnail_url,
+                                  has_image: !!creative.image_url,
+                                  thumbnail_preview:
+                                    creative.thumbnail_url?.substring(0, 60),
+                                }
                               : "NO CREATIVE DATA"
                           );
                           console.log(
@@ -2548,7 +2611,9 @@ export default function FacebookAdsManagerPage() {
                                     const thumbnailUrl =
                                       creative?.thumbnail_url ||
                                       creative?.image_url;
-                                    const localVideoPath = videoId ? `/images/video/${videoId}.mp4` : null;
+                                    const localVideoPath = videoId
+                                      ? `/images/video/${videoId}.mp4`
+                                      : null;
 
                                     // ถ้ามี videoId - แสดง video preview ที่เล่นอัตโนมัติ 3 วิ เมื่อ hover
                                     if (videoId && localVideoPath) {
@@ -2571,25 +2636,33 @@ export default function FacebookAdsManagerPage() {
                                                   video.currentTime = 0;
                                                 }
                                               };
-                                              video.addEventListener('timeupdate', checkTime);
+                                              video.addEventListener(
+                                                "timeupdate",
+                                                checkTime
+                                              );
                                             }}
                                             onError={(e) => {
                                               // ถ้าโหลดวิดีโอไม่ได้ แสดง thumbnail แทน
                                               const video = e.currentTarget;
-                                              video.style.display = 'none';
-                                              const parent = video.parentElement;
+                                              video.style.display = "none";
+                                              const parent =
+                                                video.parentElement;
                                               if (parent && thumbnailUrl) {
-                                                const img = document.createElement('img');
+                                                const img =
+                                                  document.createElement("img");
                                                 img.src = thumbnailUrl;
-                                                img.className = 'w-full h-full object-cover';
-                                                img.alt = 'Ad preview';
+                                                img.className =
+                                                  "w-full h-full object-cover";
+                                                img.alt = "Ad preview";
                                                 parent.appendChild(img);
                                               }
                                             }}
                                           />
                                           {/* Play icon overlay */}
                                           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span className="text-white text-2xl drop-shadow-lg">▶️</span>
+                                            <span className="text-white text-2xl drop-shadow-lg">
+                                              ▶️
+                                            </span>
                                           </div>
                                         </div>
                                       );
@@ -2610,7 +2683,9 @@ export default function FacebookAdsManagerPage() {
                                           />
                                           {videoId && (
                                             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 rounded-lg">
-                                              <span className="text-white text-2xl">▶️</span>
+                                              <span className="text-white text-2xl">
+                                                ▶️
+                                              </span>
                                             </div>
                                           )}
                                         </div>
@@ -2652,7 +2727,8 @@ export default function FacebookAdsManagerPage() {
                               <td className="py-2 px-1 text-center text-gray-700 text-xl">
                                 {(() => {
                                   const thruplay = ad.actions?.find(
-                                    (action) => action.action_type === "video_view"
+                                    (action) =>
+                                      action.action_type === "video_view"
                                   );
                                   return thruplay
                                     ? formatNumber(thruplay.value)
@@ -2687,8 +2763,8 @@ export default function FacebookAdsManagerPage() {
                 </div>
                 <div className="flex flex-col gap-3 mb-3 sm:mb-4">
                   <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent flex items-center gap-2">
-                    🏆 TOP {topAdSetLimit === "all" ? "ทั้งหมด" : topAdSetLimit} Ad
-                    Set{" "}
+                    🏆 TOP {topAdSetLimit === "all" ? "ทั้งหมด" : topAdSetLimit}{" "}
+                    Ad Set{" "}
                     <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-xl font-bold shadow-xl">
                       พื้นที่ลูกค้ายอดเยี่ยม
                     </span>
@@ -2698,10 +2774,11 @@ export default function FacebookAdsManagerPage() {
                     <div className="flex gap-2 flex-1">
                       <button
                         onClick={() => setTopAdSetSortBy("leads")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdSetSortBy === "leads"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdSetSortBy === "leads"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           💬 Total Inbox (มาก → น้อย)
@@ -2710,10 +2787,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setTopAdSetSortBy("phone")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdSetSortBy === "phone"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdSetSortBy === "phone"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           📞 ชื่อ - เบอร์ (มาก → น้อย)
@@ -2722,10 +2800,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setTopAdSetSortBy("thruplay")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${topAdSetSortBy === "thruplay"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          topAdSetSortBy === "thruplay"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           🎬 ThruPlay (มาก → น้อย)
@@ -2766,10 +2845,11 @@ export default function FacebookAdsManagerPage() {
                         }
                         setAdSetCampaignFilter(newFilter);
                       }}
-                      className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${adSetCampaignFilter.has("TOF")
-                        ? "bg-blue-600 text-white shadow-lg"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                        }`}
+                      className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                        adSetCampaignFilter.has("TOF")
+                          ? "bg-blue-600 text-white shadow-lg"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`}
                     >
                       TOF
                     </button>
@@ -2783,10 +2863,11 @@ export default function FacebookAdsManagerPage() {
                         }
                         setAdSetCampaignFilter(newFilter);
                       }}
-                      className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${adSetCampaignFilter.has("MOF")
-                        ? "bg-green-600 text-white shadow-lg"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                        }`}
+                      className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                        adSetCampaignFilter.has("MOF")
+                          ? "bg-green-600 text-white shadow-lg"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`}
                     >
                       MOF
                     </button>
@@ -2800,10 +2881,11 @@ export default function FacebookAdsManagerPage() {
                         }
                         setAdSetCampaignFilter(newFilter);
                       }}
-                      className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${adSetCampaignFilter.has("BOF")
-                        ? "bg-orange-600 text-white shadow-lg"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                        }`}
+                      className={`px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                        adSetCampaignFilter.has("BOF")
+                          ? "bg-orange-600 text-white shadow-lg"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`}
                     >
                       BOF
                     </button>
@@ -2817,7 +2899,10 @@ export default function FacebookAdsManagerPage() {
                       </p>
                     </div>
                   )}
-                  <table className="w-full" key={`table2-${adsetInsights.length}`}>
+                  <table
+                    className="w-full"
+                    key={`table2-${adsetInsights.length}`}
+                  >
                     <thead>
                       <tr className="border-b-2 border-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
                         <th className="text-center py-2 px-1 font-semibold text-gray-700 text-sm">
@@ -2867,8 +2952,12 @@ export default function FacebookAdsManagerPage() {
                             return totalInboxB - totalInboxA;
                           } else if (topAdSetSortBy === "phone") {
                             // Sort by phone leads (highest first)
-                            const phoneLeadsA = getPhoneLeadsByAdSetId(a.adset_id);
-                            const phoneLeadsB = getPhoneLeadsByAdSetId(b.adset_id);
+                            const phoneLeadsA = getPhoneLeadsByAdSetId(
+                              a.adset_id
+                            );
+                            const phoneLeadsB = getPhoneLeadsByAdSetId(
+                              b.adset_id
+                            );
                             return phoneLeadsB - phoneLeadsA;
                           } else {
                             // Sort by thruplay (highest first)
@@ -2948,7 +3037,8 @@ export default function FacebookAdsManagerPage() {
                               <td className="py-2 px-1 text-center text-gray-700 text-xl">
                                 {(() => {
                                   const thruplay = adset.actions?.find(
-                                    (action) => action.action_type === "video_view"
+                                    (action) =>
+                                      action.action_type === "video_view"
                                   );
                                   return thruplay
                                     ? formatNumber(thruplay.value)
@@ -3022,13 +3112,19 @@ export default function FacebookAdsManagerPage() {
                       <tbody>
                         {page2Loading ? (
                           <tr>
-                            <td colSpan={2} className="px-2 py-4 text-center text-xs">
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs"
+                            >
                               ⏳
                             </td>
                           </tr>
                         ) : (
                           <tr>
-                            <td colSpan={2} className="px-2 py-4 text-center text-xs text-gray-400">
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs text-gray-400"
+                            >
                               ไม่มีข้อมูลรายวัน
                             </td>
                           </tr>
@@ -3052,7 +3148,9 @@ export default function FacebookAdsManagerPage() {
                         {page2Loading ? (
                           <span className="text-2xl">⏳</span>
                         ) : (
-                          formatNumber(page2Summary.total_messaging_first_reply || 0)
+                          formatNumber(
+                            page2Summary.total_messaging_first_reply || 0
+                          )
                         )}
                       </div>
                     </div>
@@ -3064,7 +3162,9 @@ export default function FacebookAdsManagerPage() {
                         {page2Loading ? (
                           <span className="text-2xl">⏳</span>
                         ) : (
-                          formatNumber(page2Summary.total_messaging_connection || 0)
+                          formatNumber(
+                            page2Summary.total_messaging_connection || 0
+                          )
                         )}
                       </div>
                     </div>
@@ -3090,13 +3190,19 @@ export default function FacebookAdsManagerPage() {
                       <tbody>
                         {page2Loading ? (
                           <tr>
-                            <td colSpan={3} className="px-2 py-4 text-center text-xs">
+                            <td
+                              colSpan={3}
+                              className="px-2 py-4 text-center text-xs"
+                            >
                               ⏳
                             </td>
                           </tr>
                         ) : (
                           <tr>
-                            <td colSpan={3} className="px-2 py-4 text-center text-xs text-gray-400">
+                            <td
+                              colSpan={3}
+                              className="px-2 py-4 text-center text-xs text-gray-400"
+                            >
                               ไม่มีข้อมูล Inbox
                             </td>
                           </tr>
@@ -3115,11 +3221,7 @@ export default function FacebookAdsManagerPage() {
                     📞 ชื่อ - เบอร์
                   </div>
                   <div className="text-2xl sm:text-4xl font-bold">
-                    {page2Loading ? (
-                      <span className="text-3xl">⏳</span>
-                    ) : (
-                      "—"
-                    )}
+                    {page2Loading ? <span className="text-3xl">⏳</span> : "—"}
                   </div>
                 </div>
                 {/* Table - วันที่ + เบอร์ */}
@@ -3139,13 +3241,19 @@ export default function FacebookAdsManagerPage() {
                       <tbody>
                         {page2Loading ? (
                           <tr>
-                            <td colSpan={2} className="px-2 py-4 text-center text-xs">
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs"
+                            >
                               ⏳
                             </td>
                           </tr>
                         ) : (
                           <tr>
-                            <td colSpan={2} className="px-2 py-4 text-center text-xs text-gray-400">
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs text-gray-400"
+                            >
                               ไม่มีข้อมูลเบอร์โทร
                             </td>
                           </tr>
@@ -3176,10 +3284,11 @@ export default function FacebookAdsManagerPage() {
                     <div className="flex gap-2 flex-1">
                       <button
                         onClick={() => setPage2SortBy("spend")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "spend"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "spend"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           💰 Spend (มาก → น้อย)
@@ -3188,10 +3297,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setPage2SortBy("clicks")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "clicks"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "clicks"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           🖱️ Clicks (มาก → น้อย)
@@ -3200,10 +3310,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setPage2SortBy("ctr")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "ctr"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "ctr"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           📈 CTR (มาก → น้อย)
@@ -3212,10 +3323,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setPage2SortBy("impressions")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "impressions"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "impressions"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           👁️ Impressions (มาก → น้อย)
@@ -3261,7 +3373,10 @@ export default function FacebookAdsManagerPage() {
                       </p>
                     </div>
                   )}
-                  <table className="w-full" key={`page2-table-${page2Insights.length}`}>
+                  <table
+                    className="w-full"
+                    key={`page2-table-${page2Insights.length}`}
+                  >
                     <thead>
                       <tr className="border-b-2 border-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
                         <th className="text-center py-2 px-1 font-semibold text-gray-700 text-sm">
@@ -3295,19 +3410,40 @@ export default function FacebookAdsManagerPage() {
                         .sort((a, b) => {
                           switch (page2SortBy) {
                             case "spend":
-                              return parseFloat(b.spend || "0") - parseFloat(a.spend || "0");
+                              return (
+                                parseFloat(b.spend || "0") -
+                                parseFloat(a.spend || "0")
+                              );
                             case "clicks":
-                              return parseInt(b.clicks || "0") - parseInt(a.clicks || "0");
+                              return (
+                                parseInt(b.clicks || "0") -
+                                parseInt(a.clicks || "0")
+                              );
                             case "impressions":
-                              return parseInt(b.impressions || "0") - parseInt(a.impressions || "0");
+                              return (
+                                parseInt(b.impressions || "0") -
+                                parseInt(a.impressions || "0")
+                              );
                             case "ctr":
-                              return parseFloat(b.ctr || "0") - parseFloat(a.ctr || "0");
+                              return (
+                                parseFloat(b.ctr || "0") -
+                                parseFloat(a.ctr || "0")
+                              );
                             case "cpc":
-                              return parseFloat(b.cpc || "0") - parseFloat(a.cpc || "0");
+                              return (
+                                parseFloat(b.cpc || "0") -
+                                parseFloat(a.cpc || "0")
+                              );
                             case "cpm":
-                              return parseFloat(b.cpm || "0") - parseFloat(a.cpm || "0");
+                              return (
+                                parseFloat(b.cpm || "0") -
+                                parseFloat(a.cpm || "0")
+                              );
                             default:
-                              return parseFloat(b.spend || "0") - parseFloat(a.spend || "0");
+                              return (
+                                parseFloat(b.spend || "0") -
+                                parseFloat(a.spend || "0")
+                              );
                           }
                         })
                         .slice(0, page2Limit === "all" ? undefined : page2Limit)
@@ -3338,34 +3474,44 @@ export default function FacebookAdsManagerPage() {
                               <td className="py-2 px-1 text-center font-semibold text-green-700 text-xl">
                                 {(() => {
                                   const newInbox = ad.actions?.find(
-                                    (action) => action.action_type === "onsite_conversion.messaging_first_reply"
+                                    (action) =>
+                                      action.action_type ===
+                                      "onsite_conversion.messaging_first_reply"
                                   );
-                                  return newInbox ? formatNumber(newInbox.value) : "—";
+                                  return newInbox
+                                    ? formatNumber(newInbox.value)
+                                    : "—";
                                 })()}
                               </td>
                               <td className="py-2 px-1 text-center font-semibold text-blue-700 text-xl">
                                 {(() => {
                                   const totalInbox = ad.actions?.find(
-                                    (action) => action.action_type === "onsite_conversion.total_messaging_connection"
+                                    (action) =>
+                                      action.action_type ===
+                                      "onsite_conversion.total_messaging_connection"
                                   );
-                                  return totalInbox ? formatNumber(totalInbox.value) : "—";
+                                  return totalInbox
+                                    ? formatNumber(totalInbox.value)
+                                    : "—";
                                 })()}
                               </td>
                               <td className="py-2 px-1 text-center font-semibold text-purple-700 text-xl">
-                                {/* ไม่มี phone leads - แสดง — */}
-                                —
+                                {/* ไม่มี phone leads - แสดง — */}—
                               </td>
                               <td className="py-2 px-1 text-center text-gray-700 text-xl">
-                                {/* ไม่มี ThruPlay - แสดง — */}
-                                —
+                                {/* ไม่มี ThruPlay - แสดง — */}—
                               </td>
                               <td className="py-2 px-1 text-center text-gray-700 text-xl">
                                 {(() => {
                                   const totalInbox = ad.actions?.find(
-                                    (action) => action.action_type === "onsite_conversion.total_messaging_connection"
+                                    (action) =>
+                                      action.action_type ===
+                                      "onsite_conversion.total_messaging_connection"
                                   );
                                   const spend = parseFloat(ad.spend || "0");
-                                  const inboxCount = parseInt(totalInbox?.value || "0");
+                                  const inboxCount = parseInt(
+                                    totalInbox?.value || "0"
+                                  );
                                   if (inboxCount > 0) {
                                     return formatCurrency(spend / inboxCount);
                                   }
@@ -3387,7 +3533,8 @@ export default function FacebookAdsManagerPage() {
                 </div>
                 <div className="flex flex-col gap-3 mb-3 sm:mb-4">
                   <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent flex items-center gap-2">
-                    🏆 TOP {page2Limit === "all" ? "ทั้งหมด" : page2Limit} Ad Set{" "}
+                    🏆 TOP {page2Limit === "all" ? "ทั้งหมด" : page2Limit} Ad
+                    Set{" "}
                     <span className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-xl font-bold shadow-xl">
                       พื้นที่ลูกค้ายอดเยี่ยม
                     </span>
@@ -3397,10 +3544,11 @@ export default function FacebookAdsManagerPage() {
                     <div className="flex gap-2 flex-1">
                       <button
                         onClick={() => setPage2SortBy("spend")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "spend"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "spend"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           💰 Spend (มาก → น้อย)
@@ -3409,10 +3557,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setPage2SortBy("clicks")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "clicks"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "clicks"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           🖱️ Clicks (มาก → น้อย)
@@ -3421,10 +3570,11 @@ export default function FacebookAdsManagerPage() {
                       </button>
                       <button
                         onClick={() => setPage2SortBy("impressions")}
-                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${page2SortBy === "impressions"
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                          }`}
+                        className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg font-medium text-xs sm:text-sm transition-all ${
+                          page2SortBy === "impressions"
+                            ? "bg-purple-600 text-white shadow-lg"
+                            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                        }`}
                       >
                         <span className="hidden sm:inline">
                           👁️ Impressions (มาก → น้อย)
@@ -3462,7 +3612,10 @@ export default function FacebookAdsManagerPage() {
                       </p>
                     </div>
                   )}
-                  <table className="w-full" key={`page2-adset-table-${page2Insights.length}`}>
+                  <table
+                    className="w-full"
+                    key={`page2-adset-table-${page2Insights.length}`}
+                  >
                     <thead>
                       <tr className="border-b-2 border-gradient-to-r from-blue-200 via-purple-200 to-pink-200">
                         <th className="text-center py-2 px-1 font-semibold text-gray-700 text-sm">
@@ -3491,16 +3644,19 @@ export default function FacebookAdsManagerPage() {
                     <tbody>
                       {(() => {
                         // Group by adset with actions data
-                        const adsetData = new Map<string, {
-                          adset_id: string;
-                          adset_name: string;
-                          campaign_name: string;
-                          spend: number;
-                          clicks: number;
-                          impressions: number;
-                          newInbox: number;
-                          totalInbox: number;
-                        }>();
+                        const adsetData = new Map<
+                          string,
+                          {
+                            adset_id: string;
+                            adset_name: string;
+                            campaign_name: string;
+                            spend: number;
+                            clicks: number;
+                            impressions: number;
+                            newInbox: number;
+                            totalInbox: number;
+                          }
+                        >();
 
                         page2Insights.forEach((ad) => {
                           const existing = adsetData.get(ad.adset_id) || {
@@ -3515,18 +3671,28 @@ export default function FacebookAdsManagerPage() {
                           };
                           existing.spend += parseFloat(ad.spend || "0");
                           existing.clicks += parseInt(ad.clicks || "0");
-                          existing.impressions += parseInt(ad.impressions || "0");
+                          existing.impressions += parseInt(
+                            ad.impressions || "0"
+                          );
 
                           // Sum up actions
                           if (ad.actions) {
                             const newInboxAction = ad.actions.find(
-                              (action) => action.action_type === "onsite_conversion.messaging_first_reply"
+                              (action) =>
+                                action.action_type ===
+                                "onsite_conversion.messaging_first_reply"
                             );
                             const totalInboxAction = ad.actions.find(
-                              (action) => action.action_type === "onsite_conversion.total_messaging_connection"
+                              (action) =>
+                                action.action_type ===
+                                "onsite_conversion.total_messaging_connection"
                             );
-                            existing.newInbox += parseInt(newInboxAction?.value || "0");
-                            existing.totalInbox += parseInt(totalInboxAction?.value || "0");
+                            existing.newInbox += parseInt(
+                              newInboxAction?.value || "0"
+                            );
+                            existing.totalInbox += parseInt(
+                              totalInboxAction?.value || "0"
+                            );
                           }
 
                           adsetData.set(ad.adset_id, existing);
@@ -3545,7 +3711,10 @@ export default function FacebookAdsManagerPage() {
                                 return b.spend - a.spend;
                             }
                           })
-                          .slice(0, page2Limit === "all" ? undefined : page2Limit)
+                          .slice(
+                            0,
+                            page2Limit === "all" ? undefined : page2Limit
+                          )
                           .map((adset, index) => (
                             <tr
                               key={adset.adset_id}
@@ -3568,18 +3737,20 @@ export default function FacebookAdsManagerPage() {
                                 {formatCurrency(adset.spend)}
                               </td>
                               <td className="py-2 px-1 text-center font-semibold text-green-700 text-xl">
-                                {adset.newInbox > 0 ? formatNumber(adset.newInbox) : "—"}
+                                {adset.newInbox > 0
+                                  ? formatNumber(adset.newInbox)
+                                  : "—"}
                               </td>
                               <td className="py-2 px-1 text-center font-semibold text-blue-700 text-xl">
-                                {adset.totalInbox > 0 ? formatNumber(adset.totalInbox) : "—"}
+                                {adset.totalInbox > 0
+                                  ? formatNumber(adset.totalInbox)
+                                  : "—"}
                               </td>
                               <td className="py-2 px-1 text-center font-semibold text-purple-700 text-xl">
-                                {/* ไม่มี phone leads - แสดง — */}
-                                —
+                                {/* ไม่มี phone leads - แสดง — */}—
                               </td>
                               <td className="py-2 px-1 text-center text-gray-700 text-xl">
-                                {/* ไม่มี ThruPlay - แสดง — */}
-                                —
+                                {/* ไม่มี ThruPlay - แสดง — */}—
                               </td>
                             </tr>
                           ));
@@ -3649,27 +3820,46 @@ export default function FacebookAdsManagerPage() {
                       <tbody>
                         {dailySummaryLoading ? (
                           <tr>
-                            <td colSpan={2} className="px-2 py-4 text-center text-xs">⏳</td>
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs"
+                            >
+                              ⏳
+                            </td>
                           </tr>
                         ) : (
                           (() => {
-                            const dailyData = new Map<string, { spend: number }>();
+                            const dailyData = new Map<
+                              string,
+                              { spend: number }
+                            >();
                             dailySummaryData.forEach((ad) => {
                               const date = ad.date_start;
-                              const existing = dailyData.get(date) || { spend: 0 };
+                              const existing = dailyData.get(date) || {
+                                spend: 0,
+                              };
                               existing.spend += parseFloat(ad.spend || "0");
                               dailyData.set(date, existing);
                             });
-                            const sortedDates = Array.from(dailyData.keys()).sort(
-                              (a, b) => new Date(b).getTime() - new Date(a).getTime()
+                            const sortedDates = Array.from(
+                              dailyData.keys()
+                            ).sort(
+                              (a, b) =>
+                                new Date(b).getTime() - new Date(a).getTime()
                             );
                             const last30Days = sortedDates.slice(1, 31);
                             return last30Days.map((date) => {
                               const data = dailyData.get(date)!;
                               return (
-                                <tr key={date} className="hover:bg-blue-50 border-b">
+                                <tr
+                                  key={date}
+                                  className="hover:bg-blue-50 border-b"
+                                >
                                   <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                    {new Date(date).toLocaleDateString("th-TH", { month: "short", day: "numeric" })}
+                                    {new Date(date).toLocaleDateString(
+                                      "th-TH",
+                                      { month: "short", day: "numeric" }
+                                    )}
                                   </td>
                                   <td className="px-2 py-2 text-center text-xs font-semibold text-blue-600">
                                     {formatCurrency(data.spend)}
@@ -3714,35 +3904,75 @@ export default function FacebookAdsManagerPage() {
                     <table className="w-full min-w-max text-xs">
                       <thead className="bg-teal-50 sticky top-0">
                         <tr>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">วันที่</th>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">New Inbox</th>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">Total Inbox</th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            วันที่
+                          </th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            New Inbox
+                          </th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            Total Inbox
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {dailySummaryLoading ? (
-                          <tr><td colSpan={3} className="px-2 py-4 text-center text-xs">⏳</td></tr>
+                          <tr>
+                            <td
+                              colSpan={3}
+                              className="px-2 py-4 text-center text-xs"
+                            >
+                              ⏳
+                            </td>
+                          </tr>
                         ) : (
                           (() => {
-                            const dailyData = new Map<string, { newInbox: number; totalInbox: number }>();
+                            const dailyData = new Map<
+                              string,
+                              { newInbox: number; totalInbox: number }
+                            >();
                             dailySummaryData.forEach((ad) => {
                               const date = ad.date_start;
-                              const existing = dailyData.get(date) || { newInbox: 0, totalInbox: 0 };
-                              existing.newInbox += getResultsByActionType(ad.actions, "onsite_conversion.messaging_first_reply");
-                              existing.totalInbox += getResultsByActionType(ad.actions, "onsite_conversion.total_messaging_connection");
+                              const existing = dailyData.get(date) || {
+                                newInbox: 0,
+                                totalInbox: 0,
+                              };
+                              existing.newInbox += getResultsByActionType(
+                                ad.actions,
+                                "onsite_conversion.messaging_first_reply"
+                              );
+                              existing.totalInbox += getResultsByActionType(
+                                ad.actions,
+                                "onsite_conversion.total_messaging_connection"
+                              );
                               dailyData.set(date, existing);
                             });
-                            const sortedDates = Array.from(dailyData.keys()).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
+                            const sortedDates = Array.from(
+                              dailyData.keys()
+                            ).sort(
+                              (a, b) =>
+                                new Date(b).getTime() - new Date(a).getTime()
+                            );
                             const last30Days = sortedDates.slice(1, 31);
                             return last30Days.map((date) => {
                               const data = dailyData.get(date)!;
                               return (
-                                <tr key={date} className="hover:bg-teal-50 border-b">
+                                <tr
+                                  key={date}
+                                  className="hover:bg-teal-50 border-b"
+                                >
                                   <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                    {new Date(date).toLocaleDateString("th-TH", { month: "short", day: "numeric" })}
+                                    {new Date(date).toLocaleDateString(
+                                      "th-TH",
+                                      { month: "short", day: "numeric" }
+                                    )}
                                   </td>
-                                  <td className="px-2 py-2 text-center text-xs font-semibold text-green-600">{data.newInbox}</td>
-                                  <td className="px-2 py-2 text-center text-xs font-semibold text-teal-600">{data.totalInbox}</td>
+                                  <td className="px-2 py-2 text-center text-xs font-semibold text-green-600">
+                                    {data.newInbox}
+                                  </td>
+                                  <td className="px-2 py-2 text-center text-xs font-semibold text-teal-600">
+                                    {data.totalInbox}
+                                  </td>
                                 </tr>
                               );
                             });
@@ -3758,9 +3988,15 @@ export default function FacebookAdsManagerPage() {
               <div className="flex flex-col">
                 {/* Card */}
                 <div className="bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl text-center">
-                  <div className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 opacity-90">📞 ชื่อ - เบอร์</div>
+                  <div className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 opacity-90">
+                    📞 ชื่อ - เบอร์
+                  </div>
                   <div className="text-2xl sm:text-4xl font-bold">
-                    {phoneCountLoading ? <span className="text-3xl">⏳</span> : <div>{phoneCountData.total.toLocaleString()}</div>}
+                    {phoneCountLoading ? (
+                      <span className="text-3xl">⏳</span>
+                    ) : (
+                      <div>{phoneCountData.total.toLocaleString()}</div>
+                    )}
                   </div>
                 </div>
                 {/* Table */}
@@ -3769,23 +4005,46 @@ export default function FacebookAdsManagerPage() {
                     <table className="w-full min-w-max text-xs">
                       <thead className="bg-purple-50 sticky top-0">
                         <tr>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">วันที่</th>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">เบอร์</th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            วันที่
+                          </th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            เบอร์
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {phoneLeadsLoading ? (
-                          <tr><td colSpan={2} className="px-2 py-4 text-center text-xs">⏳</td></tr>
+                          <tr>
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs"
+                            >
+                              ⏳
+                            </td>
+                          </tr>
                         ) : (
                           Object.entries(phoneLeadsData)
-                            .sort(([dateA], [dateB]) => new Date(dateB).getTime() - new Date(dateA).getTime())
+                            .sort(
+                              ([dateA], [dateB]) =>
+                                new Date(dateB).getTime() -
+                                new Date(dateA).getTime()
+                            )
                             .slice(1)
                             .map(([date, count]) => (
-                              <tr key={date} className="hover:bg-purple-50 border-b">
+                              <tr
+                                key={date}
+                                className="hover:bg-purple-50 border-b"
+                              >
                                 <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                  {new Date(date).toLocaleDateString("th-TH", { month: "short", day: "numeric" })}
+                                  {new Date(date).toLocaleDateString("th-TH", {
+                                    month: "short",
+                                    day: "numeric",
+                                  })}
                                 </td>
-                                <td className="px-2 py-2 text-center text-xs font-semibold text-purple-600">{count}</td>
+                                <td className="px-2 py-2 text-center text-xs font-semibold text-purple-600">
+                                  {count}
+                                </td>
                               </tr>
                             ))
                         )}
@@ -3807,11 +4066,15 @@ export default function FacebookAdsManagerPage() {
                   <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent flex items-center gap-2">
                     🌐 Page 3 - Campaign Overview
                   </h2>
-                  <p className="text-gray-600 text-sm">Page 3 content area - Same structure as Page 1</p>
+                  <p className="text-gray-600 text-sm">
+                    Page 3 content area - Same structure as Page 1
+                  </p>
                 </div>
                 <div className="p-8 text-center text-gray-500">
                   <div className="text-6xl mb-4">🎯</div>
-                  <p className="text-lg">Page 3 specific content will be displayed here</p>
+                  <p className="text-lg">
+                    Page 3 specific content will be displayed here
+                  </p>
                 </div>
               </div>
 
@@ -3827,7 +4090,9 @@ export default function FacebookAdsManagerPage() {
                 </div>
                 <div className="p-8 text-center text-gray-500">
                   <div className="text-6xl mb-4">📉</div>
-                  <p className="text-lg">Page 3 metrics will be displayed here</p>
+                  <p className="text-lg">
+                    Page 3 metrics will be displayed here
+                  </p>
                 </div>
               </div>
             </div>
@@ -3891,27 +4156,46 @@ export default function FacebookAdsManagerPage() {
                       <tbody>
                         {dailySummaryLoading ? (
                           <tr>
-                            <td colSpan={2} className="px-2 py-4 text-center text-xs">⏳</td>
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs"
+                            >
+                              ⏳
+                            </td>
                           </tr>
                         ) : (
                           (() => {
-                            const dailyData = new Map<string, { spend: number }>();
+                            const dailyData = new Map<
+                              string,
+                              { spend: number }
+                            >();
                             dailySummaryData.forEach((ad) => {
                               const date = ad.date_start;
-                              const existing = dailyData.get(date) || { spend: 0 };
+                              const existing = dailyData.get(date) || {
+                                spend: 0,
+                              };
                               existing.spend += parseFloat(ad.spend || "0");
                               dailyData.set(date, existing);
                             });
-                            const sortedDates = Array.from(dailyData.keys()).sort(
-                              (a, b) => new Date(b).getTime() - new Date(a).getTime()
+                            const sortedDates = Array.from(
+                              dailyData.keys()
+                            ).sort(
+                              (a, b) =>
+                                new Date(b).getTime() - new Date(a).getTime()
                             );
                             const last30Days = sortedDates.slice(1, 31);
                             return last30Days.map((date) => {
                               const data = dailyData.get(date)!;
                               return (
-                                <tr key={date} className="hover:bg-blue-50 border-b">
+                                <tr
+                                  key={date}
+                                  className="hover:bg-blue-50 border-b"
+                                >
                                   <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                    {new Date(date).toLocaleDateString("th-TH", { month: "short", day: "numeric" })}
+                                    {new Date(date).toLocaleDateString(
+                                      "th-TH",
+                                      { month: "short", day: "numeric" }
+                                    )}
                                   </td>
                                   <td className="px-2 py-2 text-center text-xs font-semibold text-blue-600">
                                     {formatCurrency(data.spend)}
@@ -3956,35 +4240,75 @@ export default function FacebookAdsManagerPage() {
                     <table className="w-full min-w-max text-xs">
                       <thead className="bg-teal-50 sticky top-0">
                         <tr>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">วันที่</th>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">New Inbox</th>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">Total Inbox</th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            วันที่
+                          </th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            New Inbox
+                          </th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            Total Inbox
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {dailySummaryLoading ? (
-                          <tr><td colSpan={3} className="px-2 py-4 text-center text-xs">⏳</td></tr>
+                          <tr>
+                            <td
+                              colSpan={3}
+                              className="px-2 py-4 text-center text-xs"
+                            >
+                              ⏳
+                            </td>
+                          </tr>
                         ) : (
                           (() => {
-                            const dailyData = new Map<string, { newInbox: number; totalInbox: number }>();
+                            const dailyData = new Map<
+                              string,
+                              { newInbox: number; totalInbox: number }
+                            >();
                             dailySummaryData.forEach((ad) => {
                               const date = ad.date_start;
-                              const existing = dailyData.get(date) || { newInbox: 0, totalInbox: 0 };
-                              existing.newInbox += getResultsByActionType(ad.actions, "onsite_conversion.messaging_first_reply");
-                              existing.totalInbox += getResultsByActionType(ad.actions, "onsite_conversion.total_messaging_connection");
+                              const existing = dailyData.get(date) || {
+                                newInbox: 0,
+                                totalInbox: 0,
+                              };
+                              existing.newInbox += getResultsByActionType(
+                                ad.actions,
+                                "onsite_conversion.messaging_first_reply"
+                              );
+                              existing.totalInbox += getResultsByActionType(
+                                ad.actions,
+                                "onsite_conversion.total_messaging_connection"
+                              );
                               dailyData.set(date, existing);
                             });
-                            const sortedDates = Array.from(dailyData.keys()).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
+                            const sortedDates = Array.from(
+                              dailyData.keys()
+                            ).sort(
+                              (a, b) =>
+                                new Date(b).getTime() - new Date(a).getTime()
+                            );
                             const last30Days = sortedDates.slice(1, 31);
                             return last30Days.map((date) => {
                               const data = dailyData.get(date)!;
                               return (
-                                <tr key={date} className="hover:bg-teal-50 border-b">
+                                <tr
+                                  key={date}
+                                  className="hover:bg-teal-50 border-b"
+                                >
                                   <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                    {new Date(date).toLocaleDateString("th-TH", { month: "short", day: "numeric" })}
+                                    {new Date(date).toLocaleDateString(
+                                      "th-TH",
+                                      { month: "short", day: "numeric" }
+                                    )}
                                   </td>
-                                  <td className="px-2 py-2 text-center text-xs font-semibold text-green-600">{data.newInbox}</td>
-                                  <td className="px-2 py-2 text-center text-xs font-semibold text-teal-600">{data.totalInbox}</td>
+                                  <td className="px-2 py-2 text-center text-xs font-semibold text-green-600">
+                                    {data.newInbox}
+                                  </td>
+                                  <td className="px-2 py-2 text-center text-xs font-semibold text-teal-600">
+                                    {data.totalInbox}
+                                  </td>
                                 </tr>
                               );
                             });
@@ -4000,9 +4324,15 @@ export default function FacebookAdsManagerPage() {
               <div className="flex flex-col">
                 {/* Card */}
                 <div className="bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl text-center">
-                  <div className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 opacity-90">📞 ชื่อ - เบอร์</div>
+                  <div className="text-base sm:text-xl font-semibold mb-2 sm:mb-3 opacity-90">
+                    📞 ชื่อ - เบอร์
+                  </div>
                   <div className="text-2xl sm:text-4xl font-bold">
-                    {phoneCountLoading ? <span className="text-3xl">⏳</span> : <div>{phoneCountData.total.toLocaleString()}</div>}
+                    {phoneCountLoading ? (
+                      <span className="text-3xl">⏳</span>
+                    ) : (
+                      <div>{phoneCountData.total.toLocaleString()}</div>
+                    )}
                   </div>
                 </div>
                 {/* Table */}
@@ -4011,23 +4341,46 @@ export default function FacebookAdsManagerPage() {
                     <table className="w-full min-w-max text-xs">
                       <thead className="bg-purple-50 sticky top-0">
                         <tr>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">วันที่</th>
-                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">เบอร์</th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            วันที่
+                          </th>
+                          <th className="px-2 py-2 text-center font-semibold text-gray-700 border-b text-xs whitespace-nowrap">
+                            เบอร์
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {phoneLeadsLoading ? (
-                          <tr><td colSpan={2} className="px-2 py-4 text-center text-xs">⏳</td></tr>
+                          <tr>
+                            <td
+                              colSpan={2}
+                              className="px-2 py-4 text-center text-xs"
+                            >
+                              ⏳
+                            </td>
+                          </tr>
                         ) : (
                           Object.entries(phoneLeadsData)
-                            .sort(([dateA], [dateB]) => new Date(dateB).getTime() - new Date(dateA).getTime())
+                            .sort(
+                              ([dateA], [dateB]) =>
+                                new Date(dateB).getTime() -
+                                new Date(dateA).getTime()
+                            )
                             .slice(1)
                             .map(([date, count]) => (
-                              <tr key={date} className="hover:bg-purple-50 border-b">
+                              <tr
+                                key={date}
+                                className="hover:bg-purple-50 border-b"
+                              >
                                 <td className="px-2 py-2 text-center text-xs text-gray-900">
-                                  {new Date(date).toLocaleDateString("th-TH", { month: "short", day: "numeric" })}
+                                  {new Date(date).toLocaleDateString("th-TH", {
+                                    month: "short",
+                                    day: "numeric",
+                                  })}
                                 </td>
-                                <td className="px-2 py-2 text-center text-xs font-semibold text-purple-600">{count}</td>
+                                <td className="px-2 py-2 text-center text-xs font-semibold text-purple-600">
+                                  {count}
+                                </td>
                               </tr>
                             ))
                         )}
@@ -4049,11 +4402,15 @@ export default function FacebookAdsManagerPage() {
                   <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent flex items-center gap-2">
                     ⚙️ Page 4 - Settings & Configuration
                   </h2>
-                  <p className="text-gray-600 text-sm">Page 4 content area - Same structure as Page 1</p>
+                  <p className="text-gray-600 text-sm">
+                    Page 4 content area - Same structure as Page 1
+                  </p>
                 </div>
                 <div className="p-8 text-center text-gray-500">
                   <div className="text-6xl mb-4">🔧</div>
-                  <p className="text-lg">Page 4 specific content will be displayed here</p>
+                  <p className="text-lg">
+                    Page 4 specific content will be displayed here
+                  </p>
                 </div>
               </div>
 
@@ -4065,17 +4422,21 @@ export default function FacebookAdsManagerPage() {
                   <h2 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent flex items-center gap-2">
                     📝 Page 4 - Additional Info
                   </h2>
-                  <p className="text-gray-600 text-sm">Page 4 additional area</p>
+                  <p className="text-gray-600 text-sm">
+                    Page 4 additional area
+                  </p>
                 </div>
                 <div className="p-8 text-center text-gray-500">
                   <div className="text-6xl mb-4">📋</div>
-                  <p className="text-lg">Page 4 additional content will be displayed here</p>
+                  <p className="text-lg">
+                    Page 4 additional content will be displayed here
+                  </p>
                 </div>
               </div>
             </div>
           </>
         )}
       </div>
-    </div >
+    </div>
   );
 }

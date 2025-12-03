@@ -6,7 +6,7 @@ import Aboutus from "@/components/Home/AboutUs";
 import Dedicated from "@/components/Home/Detail";
 import Insta from "@/components/Home/News";
 import InvestorRelations from "@/components/InvestorRelations";
-import GoGreenVideo from "@/app/go-green/page";
+import GoGreenVideo from "./GoGreenVideo";
 export default function ClientApp() {
   const [isLoading, setIsLoading] = useState(true);
   return (
@@ -33,4 +33,4 @@ export default function ClientApp() {
       </main>
     </ScaledCanvas>
   );
-}
+}
