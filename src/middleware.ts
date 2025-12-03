@@ -56,6 +56,6 @@ export const config = {
   // กำหนด path ที่ต้องการให้ middleware ทำงาน
   matcher: [
     // ไม่รวม static files และ API routes
-    "/((?!api|_next/static|_next/image|favicon.ico|images|downloads|TPP.ico).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|images|downloads|bjh-logo.ico ).*)",
   ],
 };
