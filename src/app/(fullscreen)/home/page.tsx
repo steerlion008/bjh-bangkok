@@ -110,14 +110,16 @@ export default function FullscreenHomePage() {
       const url = `https://believable-ambition-production.up.railway.app/api/facebook-ads-campaigns?level=account&date_preset=today&action_breakdowns=action_type`;
       const response = await fetch(url);
       const result = await response.json();
-      
+
       if (result.success && result.data) {
         let totalInbox = 0;
         const data = Array.isArray(result.data) ? result.data : [result.data];
         data.forEach((item: any) => {
           if (item.actions) {
             item.actions.forEach((action: any) => {
-              if (action.action_type === "onsite_conversion.messaging_first_reply") {
+              if (
+                action.action_type === "onsite_conversion.messaging_first_reply"
+              ) {
                 totalInbox += parseInt(action.value) || 0;
               }
             });
@@ -136,15 +138,16 @@ export default function FullscreenHomePage() {
   const fetchLeadsData = useCallback(async (): Promise<number> => {
     try {
       const today = getTodayDate();
-      const response = await fetch(`/api/facebook-ads-phone-leads?date=${today}`);
+      const response = await fetch(
+        `/api/facebook-ads-phone-leads?date=${today}`
+      );
       const result = await response.json();
-      
+
       if (result.success && result.data) {
         // Sum all leads for today
-        const totalLeads = Object.values(result.data as Record<string, number>).reduce(
-          (sum: number, count: number) => sum + count,
-          0
-        );
+        const totalLeads = Object.values(
+          result.data as Record<string, number>
+        ).reduce((sum: number, count: number) => sum + count, 0);
         return totalLeads;
       }
       return 0;
@@ -159,24 +162,32 @@ export default function FullscreenHomePage() {
     try {
       const response = await fetch(`/api/surgery-schedule-db`);
       const result = await response.json();
-      
+
       if (result.success && result.data) {
         const today = new Date();
-        const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-        
+        const todayStr = `${today.getFullYear()}-${String(
+          today.getMonth() + 1
+        ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
         // Count bookings scheduled for today (วันที่ได้นัดผ่าตัด = today)
         const todayBookings = result.data.filter((item: any) => {
-          const scheduledDate = item.date_surgery_scheduled || item.วันที่ได้นัดผ่าตัด || "";
+          const scheduledDate =
+            item.date_surgery_scheduled || item.วันที่ได้นัดผ่าตัด || "";
           // Handle different date formats
           if (!scheduledDate) return false;
-          
+
           // Try to match YYYY-MM-DD format
           if (scheduledDate === todayStr) return true;
-          
+
           // Try to parse as date and compare
           try {
             const parsedDate = new Date(scheduledDate);
-            const parsedStr = `${parsedDate.getFullYear()}-${String(parsedDate.getMonth() + 1).padStart(2, "0")}-${String(parsedDate.getDate()).padStart(2, "0")}`;
+            const parsedStr = `${parsedDate.getFullYear()}-${String(
+              parsedDate.getMonth() + 1
+            ).padStart(2, "0")}-${String(parsedDate.getDate()).padStart(
+              2,
+              "0"
+            )}`;
             return parsedStr === todayStr;
           } catch {
             return false;
@@ -196,20 +207,24 @@ export default function FullscreenHomePage() {
     try {
       const response = await fetch(`/api/n-clinic-db`);
       const result = await response.json();
-      
+
       if (result.success && result.data) {
         const today = new Date();
-        const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-        
+        const todayStr = `${today.getFullYear()}-${String(
+          today.getMonth() + 1
+        ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
         // Sum revenue for today
         let todayRevenue = 0;
         result.data.forEach((item: any) => {
           const incomeDate = item.income_date || "";
           // Check if income_date matches today (handle different date formats)
-          const dateMatch = incomeDate === todayStr || 
+          const dateMatch =
+            incomeDate === todayStr ||
             incomeDate.startsWith(todayStr) ||
-            (incomeDate && new Date(incomeDate).toISOString().split('T')[0] === todayStr);
-          
+            (incomeDate &&
+              new Date(incomeDate).toISOString().split("T")[0] === todayStr);
+
           if (dateMatch) {
             todayRevenue += parseFloat(item.income) || 0;
           }
@@ -233,7 +248,7 @@ export default function FullscreenHomePage() {
         fetchBookingData(),
         fetchRevenueData(),
       ]);
-      
+
       setStatsData({ inbox, leads, booking, revenue });
     } catch (error) {
       console.error("Error fetching stats:", error);
@@ -252,10 +267,10 @@ export default function FullscreenHomePage() {
         console.error("Error parsing user data:", error);
       }
     }
-    
+
     // Fetch stats data on mount
     fetchAllStats();
-    
+
     // Auto-refresh every 5 minutes
     const interval = setInterval(fetchAllStats, 5 * 60 * 1000);
     return () => clearInterval(interval);
@@ -270,34 +285,154 @@ export default function FullscreenHomePage() {
   };
 
   const quickStats: QuickStat[] = [
-    { title: "Inbox", value: statsLoading ? "..." : statsData.inbox.toString(), icon: <FaEnvelope />, color: "from-pink-500 to-rose-600", loading: statsLoading },
-    { title: "Leads", value: statsLoading ? "..." : statsData.leads.toString(), icon: <FaUserPlus />, color: "from-blue-500 to-cyan-600", loading: statsLoading },
-    { title: "Booking", value: statsLoading ? "..." : statsData.booking.toString(), icon: <FaCalendarCheck />, color: "from-purple-500 to-indigo-600", loading: statsLoading },
-    { title: "Revenue", value: statsLoading ? "..." : formatNumber(statsData.revenue), icon: <FaChartLine />, color: "from-emerald-500 to-teal-600", loading: statsLoading },
+    {
+      title: "Inbox",
+      value: "12",
+      icon: <FaEnvelope />,
+      color: "from-pink-500 to-rose-600",
+    },
+    {
+      title: "Leads",
+      value: "24",
+      icon: <FaUserPlus />,
+      color: "from-blue-500 to-cyan-600",
+    },
+    {
+      title: "Booking",
+      value: "8",
+      icon: <FaCalendarCheck />,
+      color: "from-purple-500 to-indigo-600",
+    },
+    {
+      title: "Revenue",
+      value: "฿54K",
+      icon: <FaChartLine />,
+      color: "from-emerald-500 to-teal-600",
+    },
   ];
 
   const quickActions: QuickAction[] = [
     // Marketing
-    { key: "branding_dashboard", label: "Branding Dashboard", labelTh: "ภาพรวมการตลาดและแบรนด์", link: "/branding-dashboard", icon: <FaChartLine />, color: "from-pink-500 to-rose-600", category: "Marketing" },
-    { key: "ad_performance", label: "Ad Performance", labelTh: "ติดตามประสิทธิภาพโฆษณา", link: "/facebook-ads-manager", icon: <FaAd />, color: "from-pink-500 to-rose-600", category: "Marketing" },
-    { key: "inbox_performance", label: "Inbox Performance", labelTh: "วิเคราะห์การตอบกลับข้อความ", link: "/inbox-performance", icon: <FaEnvelope />, color: "from-pink-500 to-rose-600", category: "Marketing" },
-    { key: "content_calendar", label: "Content Calendar", labelTh: "ปฏิทินคอนเทนต์และโพสต์", link: "/content-calendar", icon: <FaCalendarCheck />, color: "from-pink-500 to-rose-600", category: "Marketing" },
-    { key: "production_calendar", label: "Production Calendar", labelTh: "ตารางการผลิตสื่อและคลิป", link: "/star-case-calendar", icon: <FaCalendarPlus />, color: "from-pink-500 to-rose-600", category: "Marketing" },
-    { key: "asset_library", label: "Asset Library", labelTh: "คลังไฟล์รูปภาพและวิดีโอ", link: "/all-files-gallery", icon: <FaImage />, color: "from-pink-500 to-rose-600", category: "Marketing" },
-    { key: "edit_website", label: "Edit Website", labelTh: "จัดการเนื้อหา หน้าเว็บไซต์ รูปภาพ โปรโมชัน และ SEO", link: "/edit-website", icon: <FaEdit />, color: "from-red-500 to-rose-600", category: "Marketing" },
+    {
+      key: "branding_dashboard",
+      label: "Branding Dashboard",
+      labelTh: "ภาพรวมการตลาดและแบรนด์",
+      link: "/branding-dashboard",
+      icon: <FaChartLine />,
+      color: "from-pink-500 to-rose-600",
+      category: "Marketing",
+    },
+    {
+      key: "ad_performance",
+      label: "Ad Performance",
+      labelTh: "ติดตามประสิทธิภาพโฆษณา",
+      link: "/facebook-ads-manager",
+      icon: <FaAd />,
+      color: "from-pink-500 to-rose-600",
+      category: "Marketing",
+    },
+    {
+      key: "inbox_performance",
+      label: "Inbox Performance",
+      labelTh: "วิเคราะห์การตอบกลับข้อความ",
+      link: "/inbox-performance",
+      icon: <FaEnvelope />,
+      color: "from-pink-500 to-rose-600",
+      category: "Marketing",
+    },
+    {
+      key: "content_calendar",
+      label: "Content Calendar",
+      labelTh: "ปฏิทินคอนเทนต์และโพสต์",
+      link: "/content-calendar",
+      icon: <FaCalendarCheck />,
+      color: "from-pink-500 to-rose-600",
+      category: "Marketing",
+    },
+    {
+      key: "production_calendar",
+      label: "Production Calendar",
+      labelTh: "ตารางการผลิตสื่อและคลิป",
+      link: "/star-case-calendar",
+      icon: <FaCalendarPlus />,
+      color: "from-pink-500 to-rose-600",
+      category: "Marketing",
+    },
+    {
+      key: "asset_library",
+      label: "Asset Library",
+      labelTh: "คลังไฟล์รูปภาพและวิดีโอ",
+      link: "/all-files-gallery",
+      icon: <FaImage />,
+      color: "from-pink-500 to-rose-600",
+      category: "Marketing",
+    },
     // Sales & CRM
-    { key: "sales_performance", label: "Sales Performance", labelTh: "ติดตามยอดขายและเป้าหมาย", link: "/performance-surgery-schedule", icon: <FaChartLine />, color: "from-purple-500 to-indigo-600", category: "Sales & CRM" },
-    { key: "booking_dashboard", label: "Booking Calendar", labelTh: "ภาพรวมการจองและนัดหมาย", link: "/booking-dashboard", icon: <FaCalendarCheck />, color: "from-purple-500 to-indigo-600", category: "Sales & CRM" },
-    { key: "crm_customers", label: "Enterprise Relationship Management", labelTh: "ข้อมูลลูกค้า OPD เปิดเคส Consent Form เพิ่มสินค้า และนัดหมาย", link: "/customer-selection", icon: <FaUsers />, color: "from-purple-500 to-indigo-600", category: "Sales & CRM" },
+    {
+      key: "sales_performance",
+      label: "Sales Performance",
+      labelTh: "ติดตามยอดขายและเป้าหมาย",
+      link: "/performance-surgery-schedule",
+      icon: <FaChartLine />,
+      color: "from-purple-500 to-indigo-600",
+      category: "Sales & CRM",
+    },
+    {
+      key: "booking_dashboard",
+      label: "Booking Dashboard",
+      labelTh: "ภาพรวมการจองและนัดหมาย",
+      link: "/booking-dashboard",
+      icon: <FaCalendarCheck />,
+      color: "from-purple-500 to-indigo-600",
+      category: "Sales & CRM",
+    },
+    {
+      key: "crm_customers",
+      label: "CRM Customers",
+      labelTh: "ข้อมูลลูกค้าและติดตาม",
+      link: "/customer-selection",
+      icon: <FaUsers />,
+      color: "from-purple-500 to-indigo-600",
+      category: "Sales & CRM",
+    },
     // Operations
-    { key: "employee_calendar", label: "Employee Calendar", labelTh: "การบันทึก และตารางการทำงานของพนักงาน", link: "/employee-calendar", icon: <FaCalendarCheck />, color: "from-emerald-500 to-teal-600", category: "Operations" },
-    { key: "stock_management", label: "Stock Management", labelTh: "จัดการสต็อกสินค้า", link: "/stock-management", icon: <FaBoxes />, color: "from-emerald-500 to-teal-600", category: "Operations" },
+    {
+      key: "employee_calendar",
+      label: "Employee Calendar",
+      labelTh: "ตารางงานพนักงาน",
+      link: "/employee-calendar",
+      icon: <FaCalendarCheck />,
+      color: "from-emerald-500 to-teal-600",
+      category: "Operations",
+    },
+    {
+      key: "stock_management",
+      label: "Stock Management",
+      labelTh: "จัดการสต็อกสินค้า",
+      link: "/stock-management",
+      icon: <FaBoxes />,
+      color: "from-emerald-500 to-teal-600",
+      category: "Operations",
+    },
     // Automation
-    { key: "ai_chatbot", label: "AI Chatbot", labelTh: "ตั้งค่าแชทบอทอัตโนมัติ", link: "/ai-chatbot-setup", icon: <FaRobot />, color: "from-orange-500 to-red-600", category: "Automation" },
-    { key: "robo_call", label: "Robo Call System", labelTh: "ระบบโทรอัตโนมัติ", link: "/customer-contact-dashboard", icon: <FaPhone />, color: "from-orange-500 to-red-600", category: "Automation" },
-    // Human Resources
-    { key: "staff_recruitment", label: "Staff Recruitment", labelTh: "รายชื่อผู้สมัครและสัมภาษณ์ สถานะรอเริ่มงาน", link: "/staff-recruitment", icon: <FaClipboardList />, color: "from-cyan-500 to-blue-600", category: "Human Resources" },
-    { key: "active_staff", label: "Active Staff List", labelTh: "รายชื่อพนักงานปัจจุบัน และสำรองทดแทน", link: "/active-staff-list", icon: <FaUserTie />, color: "from-cyan-500 to-blue-600", category: "Human Resources" },
+    {
+      key: "ai_chatbot",
+      label: "AI Chatbot",
+      labelTh: "ตั้งค่าแชทบอทอัตโนมัติ",
+      link: "/ai-chatbot-setup",
+      icon: <FaRobot />,
+      color: "from-orange-500 to-red-600",
+      category: "Automation",
+    },
+    {
+      key: "robo_call",
+      label: "Robo Call System",
+      labelTh: "ระบบโทรอัตโนมัติ",
+      link: "/customer-contact-dashboard",
+      icon: <FaPhone />,
+      color: "from-orange-500 to-red-600",
+      category: "Automation",
+    },
   ];
 
   const schedule: ScheduleItem[] = [
@@ -363,7 +498,9 @@ export default function FullscreenHomePage() {
               className="bg-gradient-to-r from-red-500 to-pink-600 text-white p-2 lg:px-4 lg:py-2 rounded-xl shadow-lg flex items-center gap-2"
             >
               <FaSignOutAlt className="text-sm lg:text-base" />
-              <span className="hidden lg:inline text-sm font-medium">Logout</span>
+              <span className="hidden lg:inline text-sm font-medium">
+                Logout
+              </span>
             </motion.button>
           </div>
         </motion.div>
@@ -376,7 +513,9 @@ export default function FullscreenHomePage() {
           className="mb-4 lg:mb-6"
         >
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-white font-bold text-lg lg:text-xl">Today&apos;s Overview</h3>
+            <h3 className="text-white font-bold text-lg lg:text-xl">
+              Today&apos;s Overview
+            </h3>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -384,7 +523,9 @@ export default function FullscreenHomePage() {
               disabled={statsLoading}
               className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-lg flex items-center gap-2 text-sm disabled:opacity-50"
             >
-              <FaSync className={`text-xs ${statsLoading ? "animate-spin" : ""}`} />
+              <FaSync
+                className={`text-xs ${statsLoading ? "animate-spin" : ""}`}
+              />
               <span className="hidden md:inline">Refresh</span>
             </motion.button>
           </div>
@@ -393,121 +534,131 @@ export default function FullscreenHomePage() {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.02, y: -2 }}
-                className={`bg-white/5 backdrop-blur-sm rounded-xl p-2 md:p-4 lg:p-6 border border-white/10 text-center cursor-pointer hover:bg-white/10 transition-all ${stat.loading ? "animate-pulse" : ""}`}
+                className={`bg-white/5 backdrop-blur-sm rounded-xl p-2 md:p-4 lg:p-6 border border-white/10 text-center cursor-pointer hover:bg-white/10 transition-all ${
+                  stat.loading ? "animate-pulse" : ""
+                }`}
               >
-                <div className={`inline-flex p-1.5 md:p-2 lg:p-3 rounded-lg bg-gradient-to-r ${stat.color} text-white mb-1 md:mb-2 lg:mb-3 text-sm lg:text-xl`}>
+                <div
+                  className={`inline-flex p-1.5 md:p-2 rounded-lg bg-gradient-to-r ${stat.color} text-white mb-1 md:mb-2`}
+                >
                   {stat.icon}
                 </div>
-                <p className="text-pink-200 text-[10px] md:text-sm lg:text-base">{stat.title}</p>
-                <p className="text-white text-sm md:text-2xl lg:text-3xl font-bold">{stat.value}</p>
+                <p className="text-pink-200 text-[10px] md:text-sm">
+                  {stat.title}
+                </p>
+                <p className="text-white text-sm md:text-2xl font-bold">
+                  {stat.value}
+                </p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Main Content Grid - Desktop Layout */}
-        <div className="lg:grid lg:grid-cols-3 lg:gap-6">
-          {/* Left Column - Quick Actions */}
-          <div className="lg:col-span-2">
-            {/* Quick Actions by Category */}
-            {["Marketing", "Sales & CRM", "Operations", "Automation", "Human Resources"].map((category, categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 + categoryIndex * 0.1 }}
-                className="mb-4 lg:mb-6"
-              >
-                <h3 className="text-white font-bold text-lg lg:text-xl mb-3 lg:mb-4">{category}</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4">
-                  {quickActions
-                    .filter((action) => action.category === category)
-                    .map((action) => (
-                      <motion.button
-                        key={action.key}
-                        whileHover={{ scale: 1.03, y: -4 }}
-                        whileTap={{ scale: 0.97 }}
-                        onClick={() => handleActionClick(action.link)}
-                        className="bg-white/5 backdrop-blur-sm rounded-xl p-3 md:p-4 lg:p-5 border border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/10 hover:border-white/20 transition-all min-h-[100px] md:min-h-[120px] lg:min-h-[140px] group"
+        {/* Quick Actions by Category */}
+        {["Marketing", "Sales & CRM", "Operations", "Automation"].map(
+          (category, categoryIndex) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + categoryIndex * 0.1 }}
+              className="mb-4"
+            >
+              <h3 className="text-white font-bold text-lg mb-3">{category}</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+                {quickActions
+                  .filter((action) => action.category === category)
+                  .map((action) => (
+                    <motion.button
+                      key={action.key}
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => handleActionClick(action.link)}
+                      className="bg-white/5 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/10 flex flex-col items-center justify-center text-center hover:bg-white/10 transition-all min-h-[100px] md:min-h-[120px]"
+                    >
+                      <div
+                        className={`p-2 md:p-3 rounded-xl bg-gradient-to-r ${action.color} text-white text-base md:text-lg mb-2`}
                       >
-                        <div className={`p-2 md:p-3 lg:p-4 rounded-xl bg-gradient-to-r ${action.color} text-white text-base md:text-lg lg:text-xl mb-2 lg:mb-3 group-hover:shadow-lg transition-shadow`}>
-                          {action.icon}
-                        </div>
-                        <p className="text-white font-medium text-xs md:text-sm lg:text-base">{action.label}</p>
-                        <p className="text-pink-200 text-[10px] md:text-xs lg:text-sm leading-tight mt-0.5 lg:mt-1">{action.labelTh}</p>
-                      </motion.button>
-                    ))}
+                        {action.icon}
+                      </div>
+                      <p className="text-white font-medium text-xs md:text-sm">
+                        {action.label}
+                      </p>
+                      <p className="text-pink-200 text-[10px] md:text-xs leading-tight mt-0.5">
+                        {action.labelTh}
+                      </p>
+                    </motion.button>
+                  ))}
+              </div>
+            </motion.div>
+          )
+        )}
+
+        {/* Today's Schedule */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-4"
+        >
+          <h3 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+            <FaClock className="text-pink-400" /> Today&apos;s Schedule
+          </h3>
+          <div className="space-y-2">
+            {schedule.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.01, x: 4 }}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-white/10 flex items-center gap-3"
+              >
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-lg text-sm font-medium">
+                  {item.time}
                 </div>
+                <p className="text-white flex-1">{item.title}</p>
+                <span
+                  className={`text-xs px-2 py-1 rounded-full ${
+                    item.type === "surgery"
+                      ? "bg-red-500/20 text-red-300"
+                      : item.type === "production"
+                      ? "bg-blue-500/20 text-blue-300"
+                      : "bg-green-500/20 text-green-300"
+                  }`}
+                >
+                  {item.type}
+                </span>
               </motion.div>
             ))}
           </div>
+        </motion.div>
 
-          {/* Right Column - Schedule & Notifications (Desktop Sidebar) */}
-          <div className="lg:col-span-1">
-
-            {/* Today's Schedule */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mb-4 lg:mb-6"
-            >
-              <h3 className="text-white font-bold text-lg lg:text-xl mb-3 lg:mb-4 flex items-center gap-2">
-                <FaClock className="text-pink-400" /> Today&apos;s Schedule
-              </h3>
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-3 lg:p-4">
-                <div className="space-y-2 lg:space-y-3">
-                  {schedule.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.01, x: 4 }}
-                      className="bg-white/5 rounded-lg p-3 lg:p-4 border border-white/5 flex items-center gap-3 hover:bg-white/10 transition-all cursor-pointer"
-                    >
-                      <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-lg text-sm font-medium">
-                        {item.time}
-                      </div>
-                      <p className="text-white flex-1 text-sm lg:text-base">{item.title}</p>
-                      <span className={`text-xs px-2 py-1 rounded-full ${
-                        item.type === "surgery" ? "bg-red-500/20 text-red-300" :
-                        item.type === "production" ? "bg-blue-500/20 text-blue-300" :
-                        "bg-green-500/20 text-green-300"
-                      }`}>
-                        {item.type}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
+        {/* Notifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mb-6"
+        >
+          <h3 className="text-white font-bold text-lg mb-3 flex items-center gap-2">
+            <FaBell className="text-yellow-400" /> Notifications
+          </h3>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 space-y-2">
+            {notifications.map((notif) => (
+              <div
+                key={notif.id}
+                className={`flex items-start gap-2 text-sm ${
+                  notif.type === "warning"
+                    ? "text-yellow-300"
+                    : notif.type === "success"
+                    ? "text-green-300"
+                    : "text-pink-200"
+                }`}
+              >
+                <span>•</span>
+                <span>{notif.message}</span>
               </div>
-            </motion.div>
-
-            {/* Notifications */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="mb-6"
-            >
-              <h3 className="text-white font-bold text-lg lg:text-xl mb-3 lg:mb-4 flex items-center gap-2">
-                <FaBell className="text-yellow-400" /> Notifications
-              </h3>
-              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 space-y-3">
-                {notifications.map((notif) => (
-                  <div
-                    key={notif.id}
-                    className={`flex items-start gap-2 text-sm lg:text-base p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer ${
-                      notif.type === "warning" ? "text-yellow-300" :
-                      notif.type === "success" ? "text-green-300" :
-                      "text-pink-200"
-                    }`}
-                  >
-                    <span className="mt-0.5">•</span>
-                    <span>{notif.message}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Footer */}
         <motion.div
