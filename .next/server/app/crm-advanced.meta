@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(fullscreen)/layout,_N_T_/(fullscreen)/crm-advanced/layout,_N_T_/(fullscreen)/crm-advanced/page,_N_T_/crm-advanced"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGZ1bGxzY3JlZW4p/crm-advanced/__PAGE__",
+    "/!KGZ1bGxzY3JlZW4p/crm-advanced",
+    "/!KGZ1bGxzY3JlZW4p",
+    "/_index",
+    "/_head"
+  ]
+}

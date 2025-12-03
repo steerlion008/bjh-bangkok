@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/products-pakku-packaging/layout,_N_T_/products-pakku-packaging/page,_N_T_/products-pakku-packaging"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/products-pakku-packaging/__PAGE__",
+    "/products-pakku-packaging",
+    "/_index",
+    "/_head"
+  ]
+}

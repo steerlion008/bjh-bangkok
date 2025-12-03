@@ -1,0 +1,3 @@
+{
+  "/api/appointments/[appointCode]/open-visit/route": "app/api/appointments/[appointCode]/open-visit/route.js"
+}

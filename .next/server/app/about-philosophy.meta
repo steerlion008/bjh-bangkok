@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/about-philosophy/layout,_N_T_/about-philosophy/page,_N_T_/about-philosophy"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/about-philosophy/__PAGE__",
+    "/about-philosophy",
+    "/_index",
+    "/_head"
+  ]
+}

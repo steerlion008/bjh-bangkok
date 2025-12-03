@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,55352,t=>{"use strict";var e=t.i(843476),a=t.i(467439),i=t.i(618566);function r(){let t=(0,i.useSearchParams)().get("tab")??"overview";return(0,e.jsx)(a.default,{children:(0,e.jsx)("div",{"data-tab":t})})}t.s(["default",()=>r])}]);

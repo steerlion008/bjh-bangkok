@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/facebook-ads-insights/layout,_N_T_/facebook-ads-insights/page,_N_T_/facebook-ads-insights"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/facebook-ads-insights/__PAGE__",
+    "/facebook-ads-insights",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "app": {
+    "[project]/src/app/(fullscreen)/all-files-gallery/[videoId]/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/all-files-gallery/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/all-files-gallery/video/[id]/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/crm-advanced/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/customer-all-data/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/customer-selection/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/edit-customer/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/home/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/login/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/(fullscreen)/performance-surgery-schedule/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/PDPA/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/_not-found/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/about-executives/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/about-history/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/about-philosophy/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/about-subsidiaries/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/articles/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/awards-achievements/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/careers/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/contact-inquiry/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/customer-contact-dashboard/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/embed/video/[id]/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/facebook-ads-dashboard/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/facebook-ads-insights/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/facebook-ads-manager/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/factory-technology/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/go-green/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/google-ads-dashboard/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/investor-stock-price/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/news-events/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/oauth2callback/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/our-customers/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/our-services/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/products-pakku-packaging/[id]/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/products-pakku-packaging/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/quality-certification/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/quality-control/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/register/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/share/video/[id]/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/test-card-reader/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ],
+    "[project]/src/app/tpp-news/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

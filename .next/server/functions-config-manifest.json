@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/hr-employees": {},
+    "/api/hr-attendance": {},
+    "/api/line-webhook": {},
+    "/api/line-video/[id]": {},
+    "/api/line-send-video": {},
+    "/api/marketing-files": {},
+    "/api/serve-video/[...path]": {},
+    "/api/video-thumbnail": {},
+    "/api/transcode-video": {
+      "maxDuration": 300
+    }
+  }
+}

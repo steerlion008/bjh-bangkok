@@ -1,0 +1,3 @@
+{
+  "/api/transcode-video/route": "app/api/transcode-video/route.js"
+}

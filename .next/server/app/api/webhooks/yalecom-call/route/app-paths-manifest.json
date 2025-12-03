@@ -1,0 +1,3 @@
+{
+  "/api/webhooks/yalecom-call/route": "app/api/webhooks/yalecom-call/route.js"
+}

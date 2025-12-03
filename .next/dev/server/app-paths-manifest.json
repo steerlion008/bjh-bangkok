@@ -1,0 +1,8 @@
+{
+  "/(fullscreen)/customer-selection/page": "app/(fullscreen)/customer-selection/page.js",
+  "/(fullscreen)/home/page": "app/(fullscreen)/home/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/customer-data/route": "app/api/customer-data/route.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/page": "app/page.js"
+}

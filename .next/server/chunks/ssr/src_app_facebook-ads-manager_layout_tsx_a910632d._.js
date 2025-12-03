@@ -1,0 +1,3 @@
+module.exports=[614490,a=>{"use strict";var b=a.i(907997);function c({children:a}){return(0,b.jsx)(b.Fragment,{children:a})}a.s(["default",()=>c,"metadata",0,{title:"Facebook Ads Manager Dashboard",description:"จัดการและติดตามประสิทธิภาพโฆษณา Facebook",icons:{icon:"/TPP.ico"}},"viewport",0,{width:"device-width",initialScale:1,maximumScale:5,userScalable:!0,viewportFit:"cover"}])}];
+
+//# sourceMappingURL=src_app_facebook-ads-manager_layout_tsx_a910632d._.js.map

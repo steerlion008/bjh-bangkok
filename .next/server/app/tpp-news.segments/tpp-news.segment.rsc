@@ -1,0 +1,4 @@
+1:"$Sreact.fragment"
+2:I[339756,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/d80b3790a119a285.js"],"default"]
+3:I[837457,["/_next/static/chunks/d96012bcfc98706a.js","/_next/static/chunks/d80b3790a119a285.js"],"default"]
+0:{"buildId":"w_AbeE7SerCbiOwL9iZNO","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":[["$","div","l",{"className":"min-h-screen bg-gray-50 flex items-center justify-center","children":["$","div",null,{"className":"text-center","children":[["$","div",null,{"className":"inline-block animate-spin rounded-full h-16 w-16 border-4 border-red-600 border-t-transparent"}],["$","p",null,{"className":"mt-4 text-gray-600 text-lg","children":"กำลังโหลดข่าวสาร..."}]]}]}],[],[]],"isPartial":false}

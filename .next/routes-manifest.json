@@ -1,0 +1,1296 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/downloads/:path*.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"policy-2568.pdf\"; filename*=UTF-8''%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%9A%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99%20%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B8%E0%B8%87%20%E0%B8%9B%E0%B8%B5%202568.pdf"
+        }
+      ],
+      "regex": "^/downloads(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.pdf(?:/)?$"
+    },
+    {
+      "source": "/dl/policy-2568",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"policy-2568.pdf\"; filename*=UTF-8''%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%9A%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99%20%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B8%E0%B8%87%20%E0%B8%9B%E0%B8%B5%202568.pdf"
+        }
+      ],
+      "regex": "^/dl/policy-2568(?:/)?$"
+    },
+    {
+      "source": "/marketing/:path*.mp4",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        }
+      ],
+      "regex": "^/marketing(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.mp4(?:/)?$"
+    },
+    {
+      "source": "/marketing/:path*.MP4",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        }
+      ],
+      "regex": "^/marketing(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.MP4(?:/)?$"
+    },
+    {
+      "source": "/marketing/:path*.webm",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/webm"
+        }
+      ],
+      "regex": "^/marketing(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.webm(?:/)?$"
+    },
+    {
+      "source": "/marketing/:path*.mov",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/quicktime"
+        }
+      ],
+      "regex": "^/marketing(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.mov(?:/)?$"
+    },
+    {
+      "source": "/marketing/:path*.MOV",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/quicktime"
+        }
+      ],
+      "regex": "^/marketing(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.MOV(?:/)?$"
+    },
+    {
+      "source": "/:path*.mp4",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/mp4"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.mp4(?:/)?$"
+    },
+    {
+      "source": "/:path*.webm",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/webm"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.webm(?:/)?$"
+    },
+    {
+      "source": "/:path*.mov",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Range, Accept-Ranges, Content-Range"
+        },
+        {
+          "key": "Accept-Ranges",
+          "value": "bytes"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Content-Type",
+          "value": "video/quicktime"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?\\.mov(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/dl/policy-2568",
+        "destination": "/downloads/%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%9A%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%97%E0%B8%B3%E0%B8%87%E0%B8%B2%E0%B8%99%20%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B8%E0%B8%87%20%E0%B8%9B%E0%B8%B5%202568.pdf",
+        "regex": "^/dl/policy-2568(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/all-files-gallery/video/[id]",
+      "regex": "^/all\\-files\\-gallery/video/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/all\\-files\\-gallery/video/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/all-files-gallery/[videoId]",
+      "regex": "^/all\\-files\\-gallery/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPvideoId": "nxtPvideoId"
+      },
+      "namedRegex": "^/all\\-files\\-gallery/(?<nxtPvideoId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/appointments/[appointCode]",
+      "regex": "^/api/appointments/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPappointCode": "nxtPappointCode"
+      },
+      "namedRegex": "^/api/appointments/(?<nxtPappointCode>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/appointments/[appointCode]/open-visit",
+      "regex": "^/api/appointments/([^/]+?)/open\\-visit(?:/)?$",
+      "routeKeys": {
+        "nxtPappointCode": "nxtPappointCode"
+      },
+      "namedRegex": "^/api/appointments/(?<nxtPappointCode>[^/]+?)/open\\-visit(?:/)?$"
+    },
+    {
+      "page": "/api/customer-contacts/[id]",
+      "regex": "^/api/customer\\-contacts/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/customer\\-contacts/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/customers/[cn]/appointments",
+      "regex": "^/api/customers/([^/]+?)/appointments(?:/)?$",
+      "routeKeys": {
+        "nxtPcn": "nxtPcn"
+      },
+      "namedRegex": "^/api/customers/(?<nxtPcn>[^/]+?)/appointments(?:/)?$"
+    },
+    {
+      "page": "/api/line-video/[id]",
+      "regex": "^/api/line\\-video/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/line\\-video/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/media-files/[id]",
+      "regex": "^/api/media\\-files/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/media\\-files/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/serve-video/[...path]",
+      "regex": "^/api/serve\\-video/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPpath": "nxtPpath"
+      },
+      "namedRegex": "^/api/serve\\-video/(?<nxtPpath>.+?)(?:/)?$"
+    },
+    {
+      "page": "/embed/video/[id]",
+      "regex": "^/embed/video/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/embed/video/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/products-pakku-packaging/[id]",
+      "regex": "^/products\\-pakku\\-packaging/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/products\\-pakku\\-packaging/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/share/video/[id]",
+      "regex": "^/share/video/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/share/video/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about-executives",
+      "regex": "^/about\\-executives(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-executives(?:/)?$"
+    },
+    {
+      "page": "/about-history",
+      "regex": "^/about\\-history(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-history(?:/)?$"
+    },
+    {
+      "page": "/about-philosophy",
+      "regex": "^/about\\-philosophy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-philosophy(?:/)?$"
+    },
+    {
+      "page": "/about-subsidiaries",
+      "regex": "^/about\\-subsidiaries(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-subsidiaries(?:/)?$"
+    },
+    {
+      "page": "/all-files-gallery",
+      "regex": "^/all\\-files\\-gallery(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/all\\-files\\-gallery(?:/)?$"
+    },
+    {
+      "page": "/api/API-all-log",
+      "regex": "^/api/API\\-all\\-log(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/API\\-all\\-log(?:/)?$"
+    },
+    {
+      "page": "/api/appointments",
+      "regex": "^/api/appointments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/appointments(?:/)?$"
+    },
+    {
+      "page": "/api/auth/login",
+      "regex": "^/api/auth/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/login(?:/)?$"
+    },
+    {
+      "page": "/api/auth/register",
+      "regex": "^/api/auth/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auth/register(?:/)?$"
+    },
+    {
+      "page": "/api/auto-log-call",
+      "regex": "^/api/auto\\-log\\-call(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/auto\\-log\\-call(?:/)?$"
+    },
+    {
+      "page": "/api/b-item-groups",
+      "regex": "^/api/b\\-item\\-groups(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/b\\-item\\-groups(?:/)?$"
+    },
+    {
+      "page": "/api/b-item-services",
+      "regex": "^/api/b\\-item\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/b\\-item\\-services(?:/)?$"
+    },
+    {
+      "page": "/api/b-saleitem",
+      "regex": "^/api/b\\-saleitem(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/b\\-saleitem(?:/)?$"
+    },
+    {
+      "page": "/api/call-schedule",
+      "regex": "^/api/call\\-schedule(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/call\\-schedule(?:/)?$"
+    },
+    {
+      "page": "/api/call-schedule/call-details",
+      "regex": "^/api/call\\-schedule/call\\-details(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/call\\-schedule/call\\-details(?:/)?$"
+    },
+    {
+      "page": "/api/call-schedule/daily-summary",
+      "regex": "^/api/call\\-schedule/daily\\-summary(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/call\\-schedule/daily\\-summary(?:/)?$"
+    },
+    {
+      "page": "/api/check-env",
+      "regex": "^/api/check\\-env(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/check\\-env(?:/)?$"
+    },
+    {
+      "page": "/api/consent-forms",
+      "regex": "^/api/consent\\-forms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/consent\\-forms(?:/)?$"
+    },
+    {
+      "page": "/api/contact",
+      "regex": "^/api/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/contact(?:/)?$"
+    },
+    {
+      "page": "/api/country-options",
+      "regex": "^/api/country\\-options(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/country\\-options(?:/)?$"
+    },
+    {
+      "page": "/api/crm-advanced",
+      "regex": "^/api/crm\\-advanced(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/crm\\-advanced(?:/)?$"
+    },
+    {
+      "page": "/api/customer-add",
+      "regex": "^/api/customer\\-add(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/customer\\-add(?:/)?$"
+    },
+    {
+      "page": "/api/customer-contacts",
+      "regex": "^/api/customer\\-contacts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/customer\\-contacts(?:/)?$"
+    },
+    {
+      "page": "/api/customer-data",
+      "regex": "^/api/customer\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/customer\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/customer-updates",
+      "regex": "^/api/customer\\-updates(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/customer\\-updates(?:/)?$"
+    },
+    {
+      "page": "/api/database-test",
+      "regex": "^/api/database\\-test(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/database\\-test(?:/)?$"
+    },
+    {
+      "page": "/api/departments",
+      "regex": "^/api/departments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/departments(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads",
+      "regex": "^/api/facebook\\-ads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-balance",
+      "regex": "^/api/facebook\\-ads\\-balance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-balance(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-balance-page2",
+      "regex": "^/api/facebook\\-ads\\-balance\\-page2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-balance\\-page2(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-campaigns",
+      "regex": "^/api/facebook\\-ads\\-campaigns(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-campaigns(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-campaigns-page2",
+      "regex": "^/api/facebook\\-ads\\-campaigns\\-page2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-campaigns\\-page2(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-creative",
+      "regex": "^/api/facebook\\-ads\\-creative(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-creative(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-insights",
+      "regex": "^/api/facebook\\-ads\\-insights(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-insights(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-mock",
+      "regex": "^/api/facebook\\-ads\\-mock(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-mock(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-page2",
+      "regex": "^/api/facebook\\-ads\\-page2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-page2(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-phone-leads",
+      "regex": "^/api/facebook\\-ads\\-phone\\-leads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-phone\\-leads(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-phone-leads-sql",
+      "regex": "^/api/facebook\\-ads\\-phone\\-leads\\-sql(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-phone\\-leads\\-sql(?:/)?$"
+    },
+    {
+      "page": "/api/facebook-ads-simple",
+      "regex": "^/api/facebook\\-ads\\-simple(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/facebook\\-ads\\-simple(?:/)?$"
+    },
+    {
+      "page": "/api/film-booking-count",
+      "regex": "^/api/film\\-booking\\-count(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/film\\-booking\\-count(?:/)?$"
+    },
+    {
+      "page": "/api/film-contacts",
+      "regex": "^/api/film\\-contacts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/film\\-contacts(?:/)?$"
+    },
+    {
+      "page": "/api/film-contacts/update-last-followup",
+      "regex": "^/api/film\\-contacts/update\\-last\\-followup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/film\\-contacts/update\\-last\\-followup(?:/)?$"
+    },
+    {
+      "page": "/api/film-contacts/update-next-contact",
+      "regex": "^/api/film\\-contacts/update\\-next\\-contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/film\\-contacts/update\\-next\\-contact(?:/)?$"
+    },
+    {
+      "page": "/api/film-contacts/update-remarks",
+      "regex": "^/api/film\\-contacts/update\\-remarks(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/film\\-contacts/update\\-remarks(?:/)?$"
+    },
+    {
+      "page": "/api/film-data",
+      "regex": "^/api/film\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/film\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/financial-data",
+      "regex": "^/api/financial\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/financial\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/google-ads",
+      "regex": "^/api/google\\-ads(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-ads(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-all-data",
+      "regex": "^/api/google\\-sheets\\-all\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-all\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-call-ai",
+      "regex": "^/api/google\\-sheets\\-call\\-ai(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-call\\-ai(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-call-ai-summary",
+      "regex": "^/api/google\\-sheets\\-call\\-ai\\-summary(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-call\\-ai\\-summary(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-data",
+      "regex": "^/api/google\\-sheets\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-film-call-status",
+      "regex": "^/api/google\\-sheets\\-film\\-call\\-status(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-film\\-call\\-status(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-film-data",
+      "regex": "^/api/google\\-sheets\\-film\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-film\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-film-dev",
+      "regex": "^/api/google\\-sheets\\-film\\-dev(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-film\\-dev(?:/)?$"
+    },
+    {
+      "page": "/api/google-sheets-log-call-ai",
+      "regex": "^/api/google\\-sheets\\-log\\-call\\-ai(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/google\\-sheets\\-log\\-call\\-ai(?:/)?$"
+    },
+    {
+      "page": "/api/hr-attendance",
+      "regex": "^/api/hr\\-attendance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hr\\-attendance(?:/)?$"
+    },
+    {
+      "page": "/api/hr-employees",
+      "regex": "^/api/hr\\-employees(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hr\\-employees(?:/)?$"
+    },
+    {
+      "page": "/api/insert-sample-data",
+      "regex": "^/api/insert\\-sample\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/insert\\-sample\\-data(?:/)?$"
+    },
+    {
+      "page": "/api/jobs",
+      "regex": "^/api/jobs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/jobs(?:/)?$"
+    },
+    {
+      "page": "/api/line-send-video",
+      "regex": "^/api/line\\-send\\-video(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/line\\-send\\-video(?:/)?$"
+    },
+    {
+      "page": "/api/line-webhook",
+      "regex": "^/api/line\\-webhook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/line\\-webhook(?:/)?$"
+    },
+    {
+      "page": "/api/marketing-files",
+      "regex": "^/api/marketing\\-files(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/marketing\\-files(?:/)?$"
+    },
+    {
+      "page": "/api/marketing-folders",
+      "regex": "^/api/marketing\\-folders(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/marketing\\-folders(?:/)?$"
+    },
+    {
+      "page": "/api/media-files",
+      "regex": "^/api/media\\-files(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/media\\-files(?:/)?$"
+    },
+    {
+      "page": "/api/media-files/bulk",
+      "regex": "^/api/media\\-files/bulk(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/media\\-files/bulk(?:/)?$"
+    },
+    {
+      "page": "/api/media-files/categories",
+      "regex": "^/api/media\\-files/categories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/media\\-files/categories(?:/)?$"
+    },
+    {
+      "page": "/api/media-files/favorite",
+      "regex": "^/api/media\\-files/favorite(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/media\\-files/favorite(?:/)?$"
+    },
+    {
+      "page": "/api/media-files/upload",
+      "regex": "^/api/media\\-files/upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/media\\-files/upload(?:/)?$"
+    },
+    {
+      "page": "/api/n-clinic-db",
+      "regex": "^/api/n\\-clinic\\-db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/n\\-clinic\\-db(?:/)?$"
+    },
+    {
+      "page": "/api/n-customer",
+      "regex": "^/api/n\\-customer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/n\\-customer(?:/)?$"
+    },
+    {
+      "page": "/api/n-staff",
+      "regex": "^/api/n\\-staff(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/n\\-staff(?:/)?$"
+    },
+    {
+      "page": "/api/phone-count",
+      "regex": "^/api/phone\\-count(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/phone\\-count(?:/)?$"
+    },
+    {
+      "page": "/api/positions",
+      "regex": "^/api/positions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/positions(?:/)?$"
+    },
+    {
+      "page": "/api/product-options",
+      "regex": "^/api/product\\-options(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/product\\-options(?:/)?$"
+    },
+    {
+      "page": "/api/python-film-dev",
+      "regex": "^/api/python\\-film\\-dev(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/python\\-film\\-dev(?:/)?$"
+    },
+    {
+      "page": "/api/quick-setup-tables",
+      "regex": "^/api/quick\\-setup\\-tables(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/quick\\-setup\\-tables(?:/)?$"
+    },
+    {
+      "page": "/api/recreate-database",
+      "regex": "^/api/recreate\\-database(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/recreate\\-database(?:/)?$"
+    },
+    {
+      "page": "/api/revenue-combined-db",
+      "regex": "^/api/revenue\\-combined\\-db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/revenue\\-combined\\-db(?:/)?$"
+    },
+    {
+      "page": "/api/revenue-future-db",
+      "regex": "^/api/revenue\\-future\\-db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/revenue\\-future\\-db(?:/)?$"
+    },
+    {
+      "page": "/api/robocall",
+      "regex": "^/api/robocall(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/robocall(?:/)?$"
+    },
+    {
+      "page": "/api/sale-incentive-db",
+      "regex": "^/api/sale\\-incentive\\-db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/sale\\-incentive\\-db(?:/)?$"
+    },
+    {
+      "page": "/api/sale-incentive-python",
+      "regex": "^/api/sale\\-incentive\\-python(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/sale\\-incentive\\-python(?:/)?$"
+    },
+    {
+      "page": "/api/setup-database",
+      "regex": "^/api/setup\\-database(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/setup\\-database(?:/)?$"
+    },
+    {
+      "page": "/api/setup-database-tables",
+      "regex": "^/api/setup\\-database\\-tables(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/setup\\-database\\-tables(?:/)?$"
+    },
+    {
+      "page": "/api/share-video",
+      "regex": "^/api/share\\-video(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/share\\-video(?:/)?$"
+    },
+    {
+      "page": "/api/source-options",
+      "regex": "^/api/source\\-options(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/source\\-options(?:/)?$"
+    },
+    {
+      "page": "/api/status-options",
+      "regex": "^/api/status\\-options(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/status\\-options(?:/)?$"
+    },
+    {
+      "page": "/api/stock",
+      "regex": "^/api/stock(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/stock(?:/)?$"
+    },
+    {
+      "page": "/api/surgery-actual-db",
+      "regex": "^/api/surgery\\-actual\\-db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/surgery\\-actual\\-db(?:/)?$"
+    },
+    {
+      "page": "/api/surgery-schedule",
+      "regex": "^/api/surgery\\-schedule(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/surgery\\-schedule(?:/)?$"
+    },
+    {
+      "page": "/api/surgery-schedule-db",
+      "regex": "^/api/surgery\\-schedule\\-db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/surgery\\-schedule\\-db(?:/)?$"
+    },
+    {
+      "page": "/api/surgery-schedule-python",
+      "regex": "^/api/surgery\\-schedule\\-python(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/surgery\\-schedule\\-python(?:/)?$"
+    },
+    {
+      "page": "/api/table-size-options",
+      "regex": "^/api/table\\-size\\-options(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/table\\-size\\-options(?:/)?$"
+    },
+    {
+      "page": "/api/test-facebook",
+      "regex": "^/api/test\\-facebook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/test\\-facebook(?:/)?$"
+    },
+    {
+      "page": "/api/test-user-table",
+      "regex": "^/api/test\\-user\\-table(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/test\\-user\\-table(?:/)?$"
+    },
+    {
+      "page": "/api/transcode-video",
+      "regex": "^/api/transcode\\-video(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/transcode\\-video(?:/)?$"
+    },
+    {
+      "page": "/api/user-log-robocall",
+      "regex": "^/api/user\\-log\\-robocall(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user\\-log\\-robocall(?:/)?$"
+    },
+    {
+      "page": "/api/video-thumbnail",
+      "regex": "^/api/video\\-thumbnail(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/video\\-thumbnail(?:/)?$"
+    },
+    {
+      "page": "/api/webhooks/surgery-schedule",
+      "regex": "^/api/webhooks/surgery\\-schedule(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/webhooks/surgery\\-schedule(?:/)?$"
+    },
+    {
+      "page": "/api/webhooks/yalecom-call",
+      "regex": "^/api/webhooks/yalecom\\-call(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/webhooks/yalecom\\-call(?:/)?$"
+    },
+    {
+      "page": "/api/yalecom/contacts",
+      "regex": "^/api/yalecom/contacts(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/yalecom/contacts(?:/)?$"
+    },
+    {
+      "page": "/api/yalecom/queue-status",
+      "regex": "^/api/yalecom/queue\\-status(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/yalecom/queue\\-status(?:/)?$"
+    },
+    {
+      "page": "/api/yalecom/robocall",
+      "regex": "^/api/yalecom/robocall(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/yalecom/robocall(?:/)?$"
+    },
+    {
+      "page": "/api/yalecom-queue",
+      "regex": "^/api/yalecom\\-queue(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/yalecom\\-queue(?:/)?$"
+    },
+    {
+      "page": "/articles",
+      "regex": "^/articles(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/articles(?:/)?$"
+    },
+    {
+      "page": "/awards-achievements",
+      "regex": "^/awards\\-achievements(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/awards\\-achievements(?:/)?$"
+    },
+    {
+      "page": "/careers",
+      "regex": "^/careers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/careers(?:/)?$"
+    },
+    {
+      "page": "/contact-inquiry",
+      "regex": "^/contact\\-inquiry(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact\\-inquiry(?:/)?$"
+    },
+    {
+      "page": "/crm-advanced",
+      "regex": "^/crm\\-advanced(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/crm\\-advanced(?:/)?$"
+    },
+    {
+      "page": "/customer-all-data",
+      "regex": "^/customer\\-all\\-data(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/customer\\-all\\-data(?:/)?$"
+    },
+    {
+      "page": "/customer-contact-dashboard",
+      "regex": "^/customer\\-contact\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/customer\\-contact\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/customer-selection",
+      "regex": "^/customer\\-selection(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/customer\\-selection(?:/)?$"
+    },
+    {
+      "page": "/edit-customer",
+      "regex": "^/edit\\-customer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/edit\\-customer(?:/)?$"
+    },
+    {
+      "page": "/facebook-ads-dashboard",
+      "regex": "^/facebook\\-ads\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/facebook\\-ads\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/facebook-ads-insights",
+      "regex": "^/facebook\\-ads\\-insights(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/facebook\\-ads\\-insights(?:/)?$"
+    },
+    {
+      "page": "/facebook-ads-manager",
+      "regex": "^/facebook\\-ads\\-manager(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/facebook\\-ads\\-manager(?:/)?$"
+    },
+    {
+      "page": "/factory-technology",
+      "regex": "^/factory\\-technology(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/factory\\-technology(?:/)?$"
+    },
+    {
+      "page": "/go-green",
+      "regex": "^/go\\-green(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/go\\-green(?:/)?$"
+    },
+    {
+      "page": "/google-ads-dashboard",
+      "regex": "^/google\\-ads\\-dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/google\\-ads\\-dashboard(?:/)?$"
+    },
+    {
+      "page": "/home",
+      "regex": "^/home(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/home(?:/)?$"
+    },
+    {
+      "page": "/investor-stock-price",
+      "regex": "^/investor\\-stock\\-price(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/investor\\-stock\\-price(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/manifest.webmanifest",
+      "regex": "^/manifest\\.webmanifest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/manifest\\.webmanifest(?:/)?$"
+    },
+    {
+      "page": "/news-events",
+      "regex": "^/news\\-events(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/news\\-events(?:/)?$"
+    },
+    {
+      "page": "/oauth2callback",
+      "regex": "^/oauth2callback(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/oauth2callback(?:/)?$"
+    },
+    {
+      "page": "/our-customers",
+      "regex": "^/our\\-customers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/our\\-customers(?:/)?$"
+    },
+    {
+      "page": "/our-services",
+      "regex": "^/our\\-services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/our\\-services(?:/)?$"
+    },
+    {
+      "page": "/PDPA",
+      "regex": "^/PDPA(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/PDPA(?:/)?$"
+    },
+    {
+      "page": "/performance-surgery-schedule",
+      "regex": "^/performance\\-surgery\\-schedule(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/performance\\-surgery\\-schedule(?:/)?$"
+    },
+    {
+      "page": "/products-pakku-packaging",
+      "regex": "^/products\\-pakku\\-packaging(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/products\\-pakku\\-packaging(?:/)?$"
+    },
+    {
+      "page": "/quality-certification",
+      "regex": "^/quality\\-certification(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quality\\-certification(?:/)?$"
+    },
+    {
+      "page": "/quality-control",
+      "regex": "^/quality\\-control(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/quality\\-control(?:/)?$"
+    },
+    {
+      "page": "/register",
+      "regex": "^/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/register(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/test-card-reader",
+      "regex": "^/test\\-card\\-reader(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/test\\-card\\-reader(?:/)?$"
+    },
+    {
+      "page": "/tpp-news",
+      "regex": "^/tpp\\-news(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tpp\\-news(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

@@ -1,0 +1,634 @@
+[00:00:00.952] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.113] Server  LOG      ✓ Ready in 813ms
+[00:00:04.186] Server  LOG      ○ Compiling / ...
+[00:00:08.186] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.311] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:08.311] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744122124}
+[00:00:08.311] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:15.336] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:15.457] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:15.457] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744129278}
+[00:00:15.457] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:18.001] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:18.131] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:18.131] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744131938}
+[00:00:18.131] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:27.914] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:27.915] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/?id=9b6bade9-4bc4-4589-87d5-b07ad825ce70&vscodeBrowserReqId=1764744140989 color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/?id=9b6bade9-4bc4-4589-87d5-b07ad825ce70&vscodeBrowserReqId=1764744140989","r":"","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744141744}
+[00:00:28.213] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:47.508] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:47.749] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:47.749] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744161477}
+[00:00:47.944] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:03.329] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:03.777] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:03.777] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744237455}
+[00:02:03.953] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:38.292] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:38.616] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:38.616] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744272317}
+[00:02:38.616] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:54.696] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:54.969] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:54.969] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744288787}
+[00:02:55.111] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:57.836] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:02.355] Browser ERROR   uncaughtError: Error: Failed to load chunk /_next/static/chunks/src_app_layout_tsx_78cdd4a3._.js from module [project]/node_modules/next/dist/compiled/react-server-dom-turbopack/cjs/react-server-dom-turbopack-client.browser.development.js [app-client] (ecmascript)
+[00:03:04.743] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:04.965] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:04.965] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744298784}
+[00:03:05.115] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:11.238] Server  LOG      ✓ Compiled in 173.2s
+[00:03:27.492] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/","id":"v3-1764744298947-7228938889391","route":"/","type":"FCP","value":460},{"href":"http://localhost:3000/","id":"v3-1764744298947-4583637210372","route":"/","type":"TTFB","value":118},{"attribution":{"eventTarget":"div>div.layout-grid>main.flex-grow-1>div.home"},"href":"http://localhost:3000/","id":"v3-1764744298947-5324370697051","route":"/","type":"LCP","value":1060},{"attribution":{"eventTarget":"div>div.layout-grid>header.bjh-header>nav.bjh-nav>div.bjh-nav-container>ul.nav-list"},"href":"http://localhost:3000/","id":"v3-1764744298948-2043509481951","route":"/","type":"CLS","value":0}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:03:44.206] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:44.416] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:44.416] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744338208}
+[00:03:44.687] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:49.831] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:50.007] Browser WARN    Image with src "http://localhost:3000/images/404.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:03:50.007] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:50.007] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/EyeSurgery color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/EyeSurgery","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744343837}
+[00:03:50.007] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:51.608] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:51.747] Browser WARN    Image with src "http://localhost:3000/images/404.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:03:51.747] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:51.747] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/Rhinoplasty color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/Rhinoplasty","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744345577}
+[00:03:51.747] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:52.947] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:53.125] Browser WARN    Image with src "http://localhost:3000/images/404.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:03:53.125] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:53.125] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/Facelift color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/Facelift","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744346945}
+[00:03:53.125] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:54.480] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:54.626] Browser WARN    Image with src "http://localhost:3000/images/404.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:03:54.626] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:54.626] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/Pterygium color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/Pterygium","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744348457}
+[00:03:54.626] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:56.289] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/Pterygium","id":"v3-1764744348458-2352045679581","route":"/Pterygium","type":"FCP","value":328},{"href":"http://localhost:3000/Pterygium","id":"v3-1764744348458-8490370149194","route":"/Pterygium","type":"TTFB","value":126},{"attribution":{"eventTarget":"div.flex.justify-center>img.object-contain"},"href":"http://localhost:3000/Pterygium","id":"v3-1764744348458-7841871382603","route":"/Pterygium","type":"LCP","value":328},{"attribution":{"eventTarget":"header.bjh-header>nav.bjh-nav>div.bjh-nav-container>ul.nav-list>li.nav-item>a.nav-link","eventType":"pointerdown"},"href":"http://localhost:3000/Pterygium","id":"v3-1764744348458-1481974842710","route":"/Pterygium","type":"FID","value":0.79}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}
+[00:03:56.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744350067}
+[00:04:00.326] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:01.628] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:01.798] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:01.798] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744355631}
+[00:04:01.798] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:43.383] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:43.562] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:43.562] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744517369}
+[00:06:43.902] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:46.959] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:47.302] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:47.302] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744521012}
+[00:06:47.485] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:48.742] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:49.022] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:49.022] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744522832}
+[00:06:49.260] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:06:51.335] Server  LOG      ✓ Compiled in 220.1s
+[00:07:20.662] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:20.992] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:07:20.992] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744554770}
+[00:07:21.147] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:05.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:17.787] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:17.966] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:17.966] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744611797}
+[00:08:17.966] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:22.250] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:22.449] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:22.449] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/customer-selection color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/customer-selection","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744616225}
+[00:08:22.449] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:22.449] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+      <LoadingBoundary name="customer-s..." loading={null}>
+        <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/customer-..." tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                <SegmentViewNode type="page" pagePath="(fullscree...">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function CustomerSelectionPage} serverProvidedParams={{...}}>
+                    <CustomerSelectionPage params={Promise} searchParams={Promise}>
+                      <div className="min-h-scre...">
+                        <div className="absolute i...">
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 13.157135004881171
+-                               width: "11.8268px"
++                               height: 12.236309308477775
+-                               height: "8.81076px"
++                               background: "hsl(331.1958291616825, 80%, 60%)"
++                               left: "6.548064368684292%"
+-                               left: "90.1017%"
++                               top: "56.30011980185002%"
+-                               top: "49.8962%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 167)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 7.676252336450694
+-                               width: "9.51718px"
++                               height: 7.538861026216482
+-                               height: "8.51688px"
++                               background: "hsl(306.1543876281388, 80%, 60%)"
++                               left: "27.304535105831697%"
+-                               left: "84.3013%"
++                               top: "62.19142327391598%"
+-                               top: "13.4735%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 143)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 5.708899830415058
+-                               width: "14.5165px"
++                               height: 13.618921064517659
+-                               height: "11.4266px"
++                               background: "hsl(320.5536226422654, 80%, 60%)"
++                               left: "83.1156330832936%"
+-                               left: "76.3104%"
++                               top: "40.49590967673381%"
+-                               top: "88.2811%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 183)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 11.806576695795622
+-                               width: "9.48429px"
++                               height: 13.311513569852128
+-                               height: "13.7192px"
++                               background: "hsl(295.5004874856245, 80%, 60%)"
++                               left: "64.54429868016737%"
+-                               left: "36.1151%"
++                               top: "22.200678279561746%"
+-                               top: "16.9371%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(180, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 12.485785548618125
+-                               width: "10.5319px"
++                               height: 12.99964305858235
+-                               height: "8.07869px"
++                               background: "hsl(283.3845650338079, 80%, 60%)"
++                               left: "45.0797998283997%"
+-                               left: "56.099%"
++                               top: "6.01240929460396%"
+-                               top: "30.2307%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 182)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 14.581666168324547
+-                               width: "14.9551px"
++                               height: 5.045073237094616
+-                               height: "5.59722px"
++                               background: "hsl(294.5134099994131, 80%, 60%)"
++                               left: "76.70391763519174%"
+-                               left: "32.0637%"
++                               top: "94.6628814516022%"
+-                               top: "22.0925%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(198, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 12.68486223240397
+-                               width: "12.9931px"
++                               height: 11.008429255338513
+-                               height: "8.79379px"
++                               background: "hsl(332.90578416027665, 80%, 60%)"
++                               left: "14.043406937104152%"
+-                               left: "31.1267%"
++                               top: "55.19236694144246%"
+-                               top: "73.6419%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 234)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 13.28276453972258
+-                               width: "12.91px"
++                               height: 6.98380918908104
+-                               height: "12.3082px"
++                               background: "hsl(290.30773497822486, 80%, 60%)"
++                               left: "57.652313012810616%"
+-                               left: "9.75632%"
++                               top: "4.780217461178859%"
+-                               top: "12.1528%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 161)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 14.256274475610981
+-                               width: "6.12899px"
++                               height: 10.199960800341877
+-                               height: "11.5696px"
++                               background: "hsl(332.52844957511803, 80%, 60%)"
++                               left: "65.14781433035255%"
+-                               left: "3.20362%"
++                               top: "94.34204955404421%"
+-                               top: "6.27021%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(226, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 7.185564855063317
+-                               width: "11.9875px"
++                               height: 14.777804189393162
+-                               height: "6.99807px"
++                               background: "hsl(326.90687910517664, 80%, 60%)"
++                               left: "80.23592074657051%"
+-                               left: "52.9071%"
++                               top: "61.27689048235664%"
+-                               top: "74.9755%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(190, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 10.748700270152236
+-                               width: "9.06785px"
++                               height: 8.500446733078117
+-                               height: "7.92333px"
++                               background: "hsl(306.05064854666705, 80%, 60%)"
++                               left: "47.3890341778752%"
+-                               left: "49.4805%"
++                               top: "36.5020429263157%"
+-                               top: "91.5802%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(181, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 12.038728382891719
+-                               width: "9.0919px"
++                               height: 12.019188090893016
+-                               height: "7.0911px"
++                               background: "hsl(324.14820719122156, 80%, 60%)"
++                               left: "84.4695072534751%"
+-                               left: "88.7033%"
++                               top: "65.69425818982158%"
+-                               top: "83.3735%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(222, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 13.256392526280873
+-                               width: "14.2461px"
++                               height: 6.150508818478241
+-                               height: "11.9024px"
++                               background: "hsl(312.73216441813315, 80%, 60%)"
++                               left: "79.14826107542581%"
+-                               left: "93.3979%"
++                               top: "58.5191825859249%"
+-                               top: "50.4999%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(221, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 8.184370766709735
+-                               width: "7.16784px"
++                               height: 8.724175717377154
+-                               height: "12.4227px"
++                               background: "hsl(336.86724414429267, 80%, 60%)"
++                               left: "13.723093961962828%"
+-                               left: "22.229%"
++                               top: "77.91618215650118%"
+-                               top: "64.7954%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 165)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 5.291198012405239
+-                               width: "11.1147px"
++                               height: 10.6994042472779
+-                               height: "13.1226px"
++                               background: "hsl(305.43922884671827, 80%, 60%)"
++                               left: "57.580631134170865%"
+-                               left: "67.3609%"
++                               top: "53.01014745321314%"
+-                               top: "36.6185%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 134)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 13.87787643014396
+-                               width: "12.1532px"
++                               height: 8.527436683597683
+-                               height: "13.7413px"
++                               background: "hsl(319.13192123144955, 80%, 60%)"
++                               left: "18.870792396092916%"
+-                               left: "3.54948%"
++                               top: "61.19004535078068%"
+-                               top: "88.2241%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 146)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 6.8057261586682785
+-                               width: "5.25781px"
++                               height: 14.932232504942997
+-                               height: "7.54599px"
++                               background: "hsl(299.50233111058526, 80%, 60%)"
++                               left: "78.45435615778369%"
+-                               left: "38.2888%"
++                               top: "12.296611284659075%"
+-                               top: "24.5241%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 165)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 8.43968883116004
+-                               width: "12.4468px"
++                               height: 11.026553636558864
+-                               height: "10.3176px"
++                               background: "hsl(336.59846687338944, 80%, 60%)"
++                               left: "65.02914192429571%"
+-                               left: "23.6244%"
++                               top: "95.60091065810145%"
+-                               top: "33.8297%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 162)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 11.966496123976494
+-                               width: "11.5477px"
++                               height: 7.958965580922781
+-                               height: "13.7067px"
++                               background: "hsl(281.73872943535787, 80%, 60%)"
++                               left: "94.8097794495713%"
+-                               left: "40.8368%"
++                               top: "25.273724898345918%"
+-                               top: "65.7677%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(235, 71, 182)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                          <motion.div className="absolute r..." style={{...}} animate={{y:[...], ...}} transition={{...}}>
+                            <div
+                              className="absolute rounded-full"
+                              style={{
++                               width: 11.29089675562006
+-                               width: "10.8025px"
++                               height: 10.239291684520971
+-                               height: "12.7881px"
++                               background: "hsl(298.457992652235, 80%, 60%)"
++                               left: "99.56016793122447%"
+-                               left: "89.2976%"
++                               top: "41.09877167082433%"
+-                               top: "83.4769%"
+-                               background-image: "initial"
+-                               background-position-x: "initial"
+-                               background-position-y: "initial"
+-                               background-size: "initial"
+-                               background-repeat: "initial"
+-                               background-attachment: "initial"
+-                               background-origin: "initial"
+-                               background-clip: "initial"
+-                               background-color: "rgb(229, 71, 235)"
+                              }}
+                              ref={function useMotionRef.useCallback}
+                            >
+                        ...
+                ...
+              ...
+
+[00:08:23.243] Browser LOG     Customer counts: {"existingCount":1433,"newCount":3878,"total":5311}
+[00:08:23.596] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:23.743] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:23.743] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/react","sdkv":"1.5.0","sv":"0.1.3","ts":1764744617575}
+[00:08:23.743] Browser LOG     %c[Vercel Speed Insights]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:08:33.317] Browser LOG     %c[Vercel Speed Insights]%c [vitals] color: rgb(120, 120, 120) color: inherit {"metrics":[{"href":"http://localhost:3000/home","id":"v3-1764744617575-7428086922569","route":"/home","type":"FCP","value":308},{"href":"http://localhost:3000/home","id":"v3-1764744617575-9790059153878","route":"/home","type":"TTFB","value":161},{"attribution":{"eventTarget":"h1.jsx-24f01c58ae8ac726.text-5xl.md:text-6xl.font-bold.text-white.mb-2.drop-shadow-2xl"},"href":"http://localhost:3000/home","id":"v3-1764744617575-8032148267017","route":"/home","type":"LCP","value":1628},{"attribution":{"eventTarget":"div>div.layout-grid>main.flex-grow-1"},"href":"http://localhost:3000/home","id":"v3-1764744617576-1882679972125","route":"/home","type":"CLS","value":0.0605}],"scriptVersion":"0.1.3","sdkName":"@vercel/speed-insights/next","sdkVersion":"1.2.0","speed":"4g"}

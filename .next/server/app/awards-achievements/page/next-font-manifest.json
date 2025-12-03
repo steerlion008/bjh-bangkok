@@ -1,0 +1,11 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/src/app/awards-achievements/page": [
+      "static/media/Kanit_Regular-s.p.d332bf82.ttf",
+      "static/media/Kanit_Bold-s.p.562f7756.ttf"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

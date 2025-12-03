@@ -1,0 +1,32 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /login
+Disallow: /register
+Disallow: /oauth2callback
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+Disallow: /all-files-gallery
+Disallow: /facebook-ads-manager/
+Disallow: /customer-contact-dashboard/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /login
+Disallow: /register
+Disallow: /oauth2callback
+Disallow: /admin/
+Disallow: /all-files-gallery
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /login
+Disallow: /register
+
+Sitemap: https://app.bjhbangkok.com/sitemap.xml
