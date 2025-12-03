@@ -316,7 +316,11 @@ export default function FullscreenHomePage() {
     {
       key: "branding_dashboard",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       label: "Branding Dashboard",
+=======
+      label: "ERM Dashboard",
+>>>>>>> Stashed changes
 =======
       label: "ERM Dashboard",
 >>>>>>> Stashed changes
@@ -386,7 +390,11 @@ export default function FullscreenHomePage() {
       label: "Booking Dashboard",
       labelTh: "ภาพรวมการจองและนัดหมาย",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       link: "/booking-dashboard",
+=======
+      link: "/crm-advanced",
+>>>>>>> Stashed changes
 =======
       link: "/crm-advanced",
 >>>>>>> Stashed changes
