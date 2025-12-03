@@ -236,7 +236,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ type }) => {
                   </li>
                 ))}
               </ul>
-              <Link to="/pricing" className="btn-primary">
+              <Link href="/Pricing" className="btn-primary">
                 ดูราคาทั้งหมด <ChevronRight size={20} />
               </Link>
             </motion.div>
