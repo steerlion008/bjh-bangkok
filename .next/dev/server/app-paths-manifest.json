@@ -1,14 +1,9 @@
 {
-  "/(fullscreen)/customer-all-data/page": "app/(fullscreen)/customer-all-data/page.js",
-  "/(fullscreen)/customer-selection/page": "app/(fullscreen)/customer-selection/page.js",
   "/(fullscreen)/home/page": "app/(fullscreen)/home/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/country-options/route": "app/api/country-options/route.js",
-  "/api/customer-data/route": "app/api/customer-data/route.js",
-  "/api/n-staff/route": "app/api/n-staff/route.js",
-  "/api/product-options/route": "app/api/product-options/route.js",
-  "/api/source-options/route": "app/api/source-options/route.js",
-  "/api/status-options/route": "app/api/status-options/route.js",
-  "/api/table-size-options/route": "app/api/table-size-options/route.js",
+  "/contact-inquiry/page": "app/contact-inquiry/page.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/news-events/page": "app/news-events/page.js",
+  "/our-services/page": "app/our-services/page.js",
   "/page": "app/page.js"
 }
