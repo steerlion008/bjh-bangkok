@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ChevronRight, Check } from 'lucide-react';
 import './Services.css';
 
@@ -166,7 +166,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ type }) => {
                   </li>
                 ))}
               </ul>
-              <Link to="/pricing" className="btn-primary">
+              <Link href="/pricing" className="btn-primary">
                 ดูราคาทั้งหมด <ChevronRight size={20} />
               </Link>
             </motion.div>
