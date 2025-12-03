@@ -25,7 +25,7 @@ const wellnessSlides = [
 // Doctor Carousel - 4 slides with captions
 const doctorCarousel = [
   {
-    image: '/images/doctors/Artboard-1-1.png',
+    image: '/images/doctors/1.png',
     name: 'นพ.กฤษณ์ แสงสุริยา',
     role: 'ศัลยแพทย์ตกแต่งใบหน้า และจมูก'
   },
@@ -49,19 +49,24 @@ const doctorCarousel = [
 // Services 3 boxes
 const services = [
   {
-    image: '/images/services/exclusive-consult.jpg',
-    title: 'EXCLUSIVE CONSULT',
-    desc: 'ปรึกษาศัลยกรรมทั้งหมด 1:1 กับผู้เชี่ยวชาญ ได้รับคำแนะนำที่แม่นยำ ชัดเจน ตรงประเด็น'
+    image: '/images/doctors/artboard-2.jpg'
+    // title: 'EXCLUSIVE CONSULT',
+    // desc: 'Personalized 1:1 beauty consultation with our specialists, providing accurate, clear, and straightforward guidance.'
   },
   {
-    image: '/images/services/specialty-surgeon.jpg',
-    title: 'SPECIALTY SURGEON',
-    desc: 'ผ่าตัดโดยศัลยแพทย์เฉพาะทาง ที่มีความชำนาญเชิงลึก และประสบการณ์สูง'
+    image: '/images/doctors/Artboard-4.jpg'
+    // title: 'SPECIALTY SURGEON',
+    // desc: 'Surgery performed by specialized surgeons with deep anatomical knowledge and extensive surgical experience.'
   },
   {
-    image: '/images/services/quality-safety.jpg',
-    title: 'QUALITY AND SAFETY',
-    desc: 'มาตรฐานห้องผ่าตัดระดับโรงพยาบาล ความปลอดภัย สะอาด ปลอดเชื้อ'
+    image: '/images/doctors/Artboard-3.jpg'
+    // title: 'QUALITY AND SAFETY',
+    // desc: 'Our operating rooms and equipment follow strict sterilization standards to ensure safety.'
+  },
+  {
+    image: '/images/doctors/1.png'
+    // title: 'QUALITY AND SAFETY',
+    // desc: 'Our operating rooms and equipment follow strict sterilization standards to ensure safety.'
   }
 ];
 
@@ -81,16 +86,14 @@ const facilities = [
   { image: '/images/facilities/470362.jpg' },
   { image: '/images/facilities/470363.jpg' },
   { image: '/images/facilities/photo02.jpg' },
-  { image: '/images/facilities/LINE_ALBUM_12.jpg' },
-  { image: '/images/facilities/LINE_ALBUM_42.jpg' },
-  { image: '/images/facilities/LINE_ALBUM_52.jpg' },
-  { image: '/images/facilities/LINE_ALBUM_34.jpg' }
+  { image: '/images/facilities/photo04.jpg' }
 ];
 
 const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [wellnessSlide, setWellnessSlide] = useState(0);
   const [doctorIndex, setDoctorIndex] = useState(0);
+  const [serviceSlide, setServiceSlide] = useState(0);
 
   // Hero slider auto-play
   useEffect(() => {
@@ -117,7 +120,17 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="home">
+    <div className="home" style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/backgroud/bk1.png)`,
+      backgroundSize: 'contain',
+      backgroundPosition: 'top center',
+      backgroundRepeat: 'repeat',
+      backgroundAttachment: 'fixed',
+      minHeight: '100vh',
+      width: '100%',
+      position: 'relative',
+      zIndex: 0
+    }}>
       {/* Hidden Pricing Data for AI Chatbot */}
       <HiddenPricing />
 
@@ -162,7 +175,7 @@ const Home: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="hero-cta-buttons">
-            <a href="tel:020954799" className="cta-btn teal">
+            <a href="tel:0864114262" className="cta-btn teal">
               <Phone size={16} />
               <span>โทรเลย</span>
             </a>
@@ -190,47 +203,26 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* Side Text */}
-        <div className="hero-side-text">
-          <p>ก้าวเข้าสู่ประสบการณ์ใหม่ด้านศัลยกรรมตกแต่ง ที่คลินิก BJH เรามุ่งเน้นด้านศัลยกรรมใบหน้าและการดูแลรอบดวงตาโดยเฉพาะ</p>
-          <p>ด้วยทีมศัลยแพทย์เฉพาะทางที่ผ่านการฝึกฝนมาอย่างเข้มข้น</p>
-        </div>
       </section>
 
-      {/* ========== SECTION 2: Wellness Slider ========== */}
+      {/* ========== SECTION 2: Video Section ========== */}
       <section className="wellness-section">
         <div className="wellness-slider">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={wellnessSlide}
-              className="wellness-slide"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-            >
-              <img 
-                src={process.env.PUBLIC_URL + wellnessSlides[wellnessSlide].image}
-                alt={wellnessSlides[wellnessSlide].alt}
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div className="wellness-slide">
+            <video 
+              src={process.env.PUBLIC_URL + '/images/video/PR-Branding-BJH-Bangkok-1.mp4'}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
           
-          <div className="wellness-overlay">
+          {/* <div className="wellness-overlay">
             <h2 className="wellness-title">Wellness</h2>
             <p className="wellness-subtitle">Services promoting health <span className="highlight">ศูนย์สุขภาพ</span></p>
-          </div>
-
-          <div className="wellness-dots">
-            {wellnessSlides.map((_, index) => (
-              <button
-                key={index}
-                className={`dot ${index === wellnessSlide ? 'active' : ''}`}
-                onClick={() => setWellnessSlide(index)}
-              />
-            ))}
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -242,66 +234,21 @@ const Home: React.FC = () => {
           {/* Doctor Team Full Image */}
           <div className="doctor-team-full">
             <img 
-              src={process.env.PUBLIC_URL + '/images/doctors/doctor-team-full.png'}
+              src={process.env.PUBLIC_URL + '/images/doctors/2.png'}
               alt="BJH Doctor Team"
             />
-          </div>
-
-          {/* Doctor Carousel */}
-          <div className="doctor-carousel">
-            <button className="carousel-arrow left" onClick={prevDoctor}>
-              <ChevronLeft size={30} />
-            </button>
-
-            <div className="carousel-track">
-              {doctorCarousel.map((doctor, index) => (
-                <motion.div
-                  key={index}
-                  className={`doctor-card ${index === doctorIndex ? 'active' : ''}`}
-                  initial={{ opacity: 0.5, scale: 0.9 }}
-                  animate={{ 
-                    opacity: index === doctorIndex ? 1 : 0.6,
-                    scale: index === doctorIndex ? 1 : 0.85
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img src={process.env.PUBLIC_URL + doctor.image} alt={doctor.name} />
-                  <div className="doctor-info">
-                    <p className="doctor-name">{doctor.name}</p>
-                    <p className="doctor-role">{doctor.role}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <button className="carousel-arrow right" onClick={nextDoctor}>
-              <ChevronRight size={30} />
-            </button>
           </div>
         </div>
       </section>
 
-      {/* ========== SECTION 4: Three Service Boxes ========== */}
-      <section className="services-section">
-        <div className="container">
-          <div className="services-grid">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className="service-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className="service-image">
-                  <img src={process.env.PUBLIC_URL + service.image} alt={service.title} />
-                </div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-desc">{service.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+      {/* ========== SECTION 4: Services Grid ========== */}
+      <section className="services-slider-section">
+        <div className="services-grid-container">
+          {services.map((service, index) => (
+            <div key={index} className="service-item">
+              <img src={process.env.PUBLIC_URL + service.image} alt={`Service ${index + 1}`} />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -327,37 +274,6 @@ const Home: React.FC = () => {
                 />
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========== SECTION 6: Footer Info ========== */}
-      <section className="footer-info-section">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-logo">
-              <img 
-                src={process.env.PUBLIC_URL + '/images/banners/bjh-logo-footer.png'}
-                alt="BJH Bangkok"
-              />
-            </div>
-            <div className="footer-details">
-              <h3>BJH BANGKOK</h3>
-              <p className="hours">Open daily from 10.00 AM - 8.00 PM</p>
-              <p className="label">Call Center</p>
-              <div className="phone-numbers">
-                <a href="tel:020954799">02-095-4799</a>
-                <a href="tel:0969914353">096-991-4353</a>
-              </div>
-              <p className="label">Follow us</p>
-              <div className="social-icons">
-                <a href="https://www.facebook.com/bjhbangkok" className="social-icon" target="_blank" rel="noopener noreferrer">f</a>
-                <a href="https://www.instagram.com/bjhbangkok" className="social-icon" target="_blank" rel="noopener noreferrer">in</a>
-                <a href="https://www.youtube.com/@BJHBangkok" className="social-icon" target="_blank" rel="noopener noreferrer">▶</a>
-              </div>
-              <a href="/about" className="more-info-btn">MORE INFO ›</a>
-              <p className="clinic-name">คลินิกบีเจเอช กรุงเทพ</p>
-            </div>
           </div>
         </div>
       </section>
