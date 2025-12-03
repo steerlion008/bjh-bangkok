@@ -29,3 +29,4 @@ yarn-error.log*
 *.tsx
 *.tsx
 src/app/(fullscreen)/home/page.tsx
+src/app/(fullscreen)/home/page.tsx
