@@ -19,7 +19,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata: Metadata = {
   title: "THAI PACKAGING & PRINTING PCL",
   icons: {
-    icon: "/TPP.ico",
+    icon: "/bjh-logo.ico ",
   },
 };
 

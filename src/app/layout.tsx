@@ -67,7 +67,7 @@ export const metadata: Metadata = {
       'en': 'https://app.bjhbangkok.com/en',
     }
   },
-  icons: { icon: "/BJH.ico", apple: "/BJH.png" },
+  icons: { icon: "/bjh-logo.ico", shortcut: "/bjh-logo.ico", apple: "/BJH.png" },
   // Open Graph - สำหรับ Facebook และ Social Media
   openGraph: {
     type: "website",

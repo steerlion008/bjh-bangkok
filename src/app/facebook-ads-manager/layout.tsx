@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Facebook Ads Manager Dashboard",
   description: "จัดการและติดตามประสิทธิภาพโฆษณา Facebook",
   icons: {
-    icon: "/TPP.ico",
+    icon: "/bjh-logo.ico ",
   },
 };
 export default function FacebookAdsManagerLayout({

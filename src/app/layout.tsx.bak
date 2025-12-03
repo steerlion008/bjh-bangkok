@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Thai Packaging & Printing PCL — packaging & printing solutions.",
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
-  icons: { icon: "/TPP.ico" },
+  icons: { icon: "/bjh-logo.ico " },
 
   // เพิ่ม Open Graph ช่วยแชร์สวยและช่วย Search Engine
   openGraph: {
