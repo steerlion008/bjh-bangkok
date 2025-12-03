@@ -1,3 +1,0 @@
-module.exports=[965056,a=>{"use strict";var b=a.i(907997);function c(){return(0,b.jsx)("div",{className:"min-h-screen bg-gray-50 flex items-center justify-center",children:(0,b.jsxs)("div",{className:"text-center",children:[(0,b.jsx)("div",{className:"inline-block animate-spin rounded-full h-16 w-16 border-4 border-red-600 border-t-transparent"}),(0,b.jsx)("p",{className:"mt-4 text-gray-600 text-lg",children:"กำลังโหลดข่าวสาร..."})]})})}a.s(["default",()=>c])}];
-
-//# sourceMappingURL=src_app_tpp-news_loading_tsx_23e5f471._.js.map
