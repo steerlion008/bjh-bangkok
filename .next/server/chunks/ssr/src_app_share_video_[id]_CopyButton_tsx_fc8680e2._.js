@@ -1,3 +1,0 @@
-module.exports=[23931,a=>{"use strict";var b=a.i(187924);function c({url:a}){let c=async()=>{try{await navigator.clipboard.writeText(a),alert("Link copied to clipboard!")}catch(c){let b=document.createElement("textarea");b.value=a,document.body.appendChild(b),b.select(),document.execCommand("copy"),document.body.removeChild(b),alert("Link copied to clipboard!")}};return(0,b.jsx)("button",{onClick:c,className:"px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-medium transition-colors",children:"Copy Link"})}a.s(["default",()=>c])}];
-
-//# sourceMappingURL=src_app_share_video_%5Bid%5D_CopyButton_tsx_fc8680e2._.js.map

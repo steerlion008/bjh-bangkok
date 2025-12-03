@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/nut_z/OneDrive/%E0%B9%80%E0%B8%94%E0%B8%AA%E0%B8%81%E0%B9%8C%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B/new-bjh/bjh-bangkok/src/app/%28fullscreen%29/layout.tsx"],"sourcesContent":["import \"../globals.css\";\r\nimport \"./fullscreen.css\";\r\nimport type { Metadata } from \"next\";\r\n\r\n// Default metadata - will be overridden by page-level metadata\r\nexport const metadata: Metadata = {\r\n  title: {\r\n    template: \"%s | BJH Bangkok\",\r\n    default: \"App\",\r\n  },\r\n};\r\n\r\nexport default function FullscreenLayout({\r\n  children,\r\n}: {\r\n  children: React.ReactNode;\r\n}) {\r\n  return <div className=\"fullscreen-layout\">{children}</div>;\r\n}\r\n"],"names":[],"mappings":";;;;;;;;;;AAKO,MAAM,WAAqB;IAChC,OAAO;QACL,UAAU;QACV,SAAS;IACX;AACF;AAEe,SAAS,iBAAiB,EACvC,QAAQ,EAGT;IACC,qBAAO,8OAAC;QAAI,WAAU;kBAAqB;;;;;;AAC7C"}}]
-}

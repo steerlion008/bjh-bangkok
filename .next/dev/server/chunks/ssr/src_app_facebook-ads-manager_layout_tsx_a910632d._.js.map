@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/nut_z/OneDrive/%E0%B9%80%E0%B8%94%E0%B8%AA%E0%B8%81%E0%B9%8C%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B/new-bjh/bjh-bangkok/src/app/facebook-ads-manager/layout.tsx"],"sourcesContent":["import { Metadata, Viewport } from \"next\";\r\nexport const viewport: Viewport = {\r\n  width: \"device-width\",\r\n  initialScale: 1,\r\n  maximumScale: 5,\r\n  userScalable: true,\r\n  viewportFit: \"cover\",\r\n};\r\nexport const metadata: Metadata = {\r\n  title: \"Facebook Ads Manager Dashboard\",\r\n  description: \"จัดการและติดตามประสิทธิภาพโฆษณา Facebook\",\r\n  icons: {\r\n    icon: \"/TPP.ico\",\r\n  },\r\n};\r\nexport default function FacebookAdsManagerLayout({\r\n  children,\r\n}: {\r\n  children: React.ReactNode;\r\n}) {\r\n  return <>{children}</>;\r\n}\r\n"],"names":[],"mappings":";;;;;;;;;;AACO,MAAM,WAAqB;IAChC,OAAO;IACP,cAAc;IACd,cAAc;IACd,cAAc;IACd,aAAa;AACf;AACO,MAAM,WAAqB;IAChC,OAAO;IACP,aAAa;IACb,OAAO;QACL,MAAM;IACR;AACF;AACe,SAAS,yBAAyB,EAC/C,QAAQ,EAGT;IACC,qBAAO;kBAAG;;AACZ"}}]
-}
