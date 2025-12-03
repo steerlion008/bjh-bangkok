@@ -111,6 +111,38 @@ export default function PerformanceSurgerySchedule() {
   const [showPTable, setShowPTable] = useState(true);
   const [showLTable, setShowLTable] = useState(true);
   const [showRevenue, setShowRevenue] = useState(true);
+
+  // Data version tracking to avoid unnecessary fetches
+  const dataVersionRef = React.useRef<{
+    surgerySchedule: { count: number; maxId: number };
+    nClinic: { count: number; maxId: number };
+    revenueFuture: { count: number; maxId: number };
+    surgeryActual: { count: number; maxId: number };
+  } | null>(null);
+
+  // Function to check if data has been updated
+  const checkForDataUpdates = async (): Promise<{
+    hasChanges: boolean;
+    changes: string[];
+  }> => {
+    try {
+      const response = await fetch("/api/data-version", {
+        cache: "no-store",
+      });
+      if (!response.ok) {
+        return { hasChanges: true, changes: ["error"] };
+      }
+      const result = await response.json();
+      return {
+        hasChanges: result.hasChanges,
+        changes: result.changes || [],
+      };
+    } catch (error) {
+      console.error("Error checking data version:", error);
+      return { hasChanges: true, changes: ["error"] };
+    }
+  };
+
   // Function to load surgery schedule data from Database
   const loadData = async (isManualRefresh = false) => {
     if (isManualRefresh) {
@@ -159,69 +191,20 @@ export default function PerformanceSurgerySchedule() {
   // Function to load N_Clinic Revenue data (sale_date <= today)
   const loadNClinicData = async () => {
     try {
-      console.log(
-        "🔄 Starting to load N_Clinic data (n_income + n_customer + n_staff)..."
-      );
       const clinicData = await fetchNClinicFromDatabase();
-      console.log("💰 N_Clinic Data Loaded:", {
-        totalRecords: clinicData.length,
-        sampleRecords: clinicData.slice(0, 5),
-        uniqueStaffDisplayName: [
-          ...new Set(clinicData.map((d) => d.staff_display_name || "ไม่ระบุ")),
-        ],
-        sampleData: clinicData.slice(0, 5).map((d) => ({
-          staff_display_name: d.staff_display_name,
-          income_date: d.income_date,
-          income: d.income,
-          income_display_name: d.income_display_name,
-        })),
-      });
       setNClinicData(clinicData);
-      console.log("✅ Loaded N_Clinic data from n_income");
     } catch (error: any) {
-      console.error("❌ Error loading N_Clinic data:", error);
-      console.error("Error details:", {
-        message: error.message,
-        stack: error.stack,
-      });
-      // Don't set error state - let revenue table just be empty
+      console.error("Error loading N_Clinic data:", error.message);
       setNClinicData([]);
     }
   };
   // Function to load Future Revenue data (surgery_date >= today)
   const loadRevenueFutureData = async () => {
     try {
-      console.log(
-        "🔄 Starting to load Revenue data (bjh_all_leads - surgery_date >= today)..."
-      );
       const futureData = await fetchRevenueFutureFromDatabase();
-      console.log("💰 Revenue Data Loaded (bjh_all_leads - Future only):", {
-        totalRecords: futureData.length,
-        sampleRecords: futureData.slice(0, 5),
-        uniqueContactStaff: [
-          ...new Set(futureData.map((d) => d.contact_staff || "ไม่ระบุ")),
-        ],
-        sampleData: futureData.slice(0, 5).map((d) => ({
-          contact_staff: d.contact_staff,
-          surgery_date: d.surgery_date,
-          doctor: d.doctor,
-          customer_name: d.customer_name,
-          phone: d.phone,
-          proposed_amount: d.proposed_amount,
-          appointment_time: d.appointment_time,
-        })),
-      });
       setRevenueFutureData(futureData);
-      console.log(
-        "✅ Loaded Revenue data (bjh_all_leads - surgery_date >= today)"
-      );
     } catch (error: any) {
-      console.error("❌ Error loading Revenue data:", error);
-      console.error("Error details:", {
-        message: error.message,
-        stack: error.stack,
-      });
-      // Don't set error state - let revenue table just be empty
+      console.error("Error loading Revenue data:", error.message);
       setRevenueFutureData([]);
     }
   };
@@ -315,25 +298,56 @@ export default function PerformanceSurgerySchedule() {
   //     await loadSaleIncentiveData();
   //   })();
   // }, [selectedMonth, selectedYear]);
-  // Fetch N_Clinic data when component mounts or when month/year changes
+  // Fetch N_Clinic data when component mounts
   useEffect(() => {
     (async () => {
       await loadNClinicData();
     })();
-  }, [selectedMonth, selectedYear]);
-  // Fetch Future Revenue data when component mounts or when month/year changes
+  }, []);
+  // Fetch Future Revenue data when component mounts
   useEffect(() => {
     (async () => {
       await loadRevenueFutureData();
     })();
-  }, [selectedMonth, selectedYear]);
-  // Auto-refresh surgery data every 30 seconds
+  }, []);
+
+  // Smart auto-refresh - only fetch when data has been updated
   useEffect(() => {
-    const interval = setInterval(async () => {
-      await loadData();
-    }, 30000); // 30 seconds
+    const checkAndRefresh = async () => {
+      const { hasChanges, changes } = await checkForDataUpdates();
+      
+      if (hasChanges) {
+        console.log("📊 Data changes detected:", changes);
+        
+        // Only fetch the data sources that have changed
+        if (changes.includes("initial") || changes.includes("error")) {
+          // Initial load or error - fetch everything
+          await loadData();
+          await loadNClinicData();
+          await loadRevenueFutureData();
+        } else {
+          // Selective fetch based on what changed
+          if (changes.includes("surgerySchedule") || changes.includes("surgeryActual")) {
+            await loadData();
+          }
+          if (changes.includes("nClinic")) {
+            await loadNClinicData();
+          }
+          if (changes.includes("revenueFuture")) {
+            await loadRevenueFutureData();
+          }
+        }
+      } else {
+        console.log("✅ No data changes detected, skipping fetch");
+      }
+    };
+
+    // Check for updates every 30 seconds
+    const interval = setInterval(checkAndRefresh, 30000);
+    
     return () => clearInterval(interval);
   }, []);
+
   // Auto-refresh N_SaleIncentive data every 30 seconds (DISABLED)
   // useEffect(() => {
   //   const interval = setInterval(async () => {
@@ -341,20 +355,6 @@ export default function PerformanceSurgerySchedule() {
   //   }, 30000); // 30 seconds
   //   return () => clearInterval(interval);
   // }, []);
-  // Auto-refresh N_Clinic data every 30 seconds
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      await loadNClinicData();
-    }, 30000); // 30 seconds
-    return () => clearInterval(interval);
-  }, []);
-  // Auto-refresh Future Revenue data every 30 seconds
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      await loadRevenueFutureData();
-    }, 30000); // 30 seconds
-    return () => clearInterval(interval);
-  }, []);
   // Get number of days in selected month
   const getDaysInMonth = (month: number, year: number) => {
     return new Date(year, month + 1, 0).getDate();
@@ -417,83 +417,27 @@ export default function PerformanceSurgerySchedule() {
   }, [surgeryData, selectedMonth, selectedYear]);
   // Update N_Clinic revenue map - ใช้ income จาก n_income
   useEffect(() => {
-    console.log("🔄 Processing N_Clinic RevenueMap (income_date)...", {
-      nClinicDataLength: nClinicData.length,
-      selectedMonth,
-      selectedYear,
-      firstFewRecords: nClinicData.slice(0, 3).map((d) => ({
-        income_date: d.income_date,
-        staff_display_name: d.staff_display_name,
-        income: d.income,
-      })),
-    });
     if (nClinicData.length > 0) {
       const newNClinicRevenueMap = calculateDailyRevenueByPersonNClinic(
         nClinicData,
         selectedMonth,
         selectedYear
       );
-      console.log("🔍 N_Clinic Revenue Map Debug:", {
-        mapSize: newNClinicRevenueMap.size,
-        persons: Array.from(newNClinicRevenueMap.keys()),
-        allData: Array.from(newNClinicRevenueMap.entries()).map(
-          ([person, dayMap]) => ({
-            person,
-            totalDays: dayMap.size,
-            days: Array.from(dayMap.entries()).slice(0, 10),
-            totalRevenue: Array.from(dayMap.values()).reduce(
-              (sum, val) => sum + val,
-              0
-            ),
-          })
-        ),
-      });
       setFilmRevenueMapNClinic(newNClinicRevenueMap);
     } else {
-      console.log("⚠️ No N_Clinic data to process, clearing map");
       setFilmRevenueMapNClinic(new Map());
     }
   }, [nClinicData, selectedMonth, selectedYear]);
   // Update film revenue map - ใช้ proposed_amount จาก bjh_all_leads (surgery_date >= today)
   useEffect(() => {
-    console.log(
-      "🔄 Processing filmRevenueMap (bjh_all_leads - Future surgeries)...",
-      {
-        futureDataLength: revenueFutureData.length,
-        selectedMonth,
-        selectedYear,
-        firstFewRecords: revenueFutureData.slice(0, 3).map((d) => ({
-          surgery_date: d.surgery_date,
-          contact_staff: d.contact_staff,
-          proposed_amount: d.proposed_amount,
-        })),
-      }
-    );
     if (revenueFutureData.length > 0) {
-      // ใช้ proposed_amount และ contact_staff จาก bjh_all_leads (surgery_date >= today)
       const newFilmRevenueMap = calculateDailyRevenueByPersonFuture(
         revenueFutureData,
         selectedMonth,
         selectedYear
       );
-      console.log("🔍 Film Revenue Map Debug (bjh_all_leads - Future):", {
-        mapSize: newFilmRevenueMap.size,
-        persons: Array.from(newFilmRevenueMap.keys()),
-        allData: Array.from(newFilmRevenueMap.entries()).map(
-          ([person, dayMap]) => ({
-            person,
-            totalDays: dayMap.size,
-            days: Array.from(dayMap.entries()).slice(0, 10),
-            totalRevenue: Array.from(dayMap.values()).reduce(
-              (sum, val) => sum + val,
-              0
-            ),
-          })
-        ),
-      });
       setFilmRevenueMap(newFilmRevenueMap);
     } else {
-      console.log("⚠️ No future revenue data to process, clearing map");
       setFilmRevenueMap(new Map());
     }
   }, [revenueFutureData, selectedMonth, selectedYear]);
@@ -734,21 +678,9 @@ export default function PerformanceSurgerySchedule() {
   const getCellRevenue = (day: number, rowId: string): number => {
     const contactPerson = CONTACT_PERSON_MAPPING[rowId];
     if (!contactPerson) {
-      console.warn(`⚠️ No contact person mapping for rowId: ${rowId}`);
       return 0;
     }
     let totalRevenue = 0;
-    // Debug: ตรวจสอบทั้ง 2 maps
-    if (day === 1) {
-      console.log(`🔍 Debug getCellRevenue for day ${day}, rowId ${rowId}:`, {
-        rowId,
-        contactPerson,
-        nClinicMapSize: filmRevenueMapNClinic.size,
-        futureMapSize: filmRevenueMap.size,
-        nClinicMapKeys: Array.from(filmRevenueMapNClinic.keys()),
-        futureMapKeys: Array.from(filmRevenueMap.keys()),
-      });
-    }
     // รวมข้อมูลจาก N_Clinic (sale_date <= today)
     if (filmRevenueMapNClinic.size > 0) {
       if (rowId === "105-จีน") {
@@ -770,24 +702,6 @@ export default function PerformanceSurgerySchedule() {
         const revenue = filmRevenueMap.get(contactPerson)?.get(day) || 0;
         totalRevenue += revenue;
       }
-    }
-    if (day === 1 && totalRevenue > 0) {
-      console.log(
-        `💰 Total Revenue for ${rowId} (${contactPerson}) day ${day}:`,
-        {
-          nClinic:
-            rowId === "105-จีน"
-              ? (filmRevenueMapNClinic.get("จีน")?.get(day) || 0) +
-                (filmRevenueMapNClinic.get("มุก")?.get(day) || 0)
-              : filmRevenueMapNClinic.get(contactPerson)?.get(day) || 0,
-          future:
-            rowId === "105-จีน"
-              ? (filmRevenueMap.get("จีน")?.get(day) || 0) +
-                (filmRevenueMap.get("มุก")?.get(day) || 0)
-              : filmRevenueMap.get(contactPerson)?.get(day) || 0,
-          totalRevenue,
-        }
-      );
     }
     return totalRevenue;
   };
@@ -918,9 +832,9 @@ export default function PerformanceSurgerySchedule() {
             onClick={() => router.push("/home")}
             className="back-button-mobile"
           >
-            ← กลับ
+            ←
           </button>
-          <h1 className="page-title">Performance</h1>
+          <h1 className="page-title">Sale Performance</h1>
           <button
             onClick={() => loadData(true)}
             disabled={isRefreshing}
@@ -982,10 +896,17 @@ export default function PerformanceSurgerySchedule() {
               });
             });
 
-            // Calculate total surgery actual
-            let totalSurgeryActual = 0;
+            // Calculate total P table (ได้นัดผ่าตัด) - scheduled surgeries
+            let totalPCount = 0;
             allRows.forEach((row) => {
-              totalSurgeryActual += kpiData[row.id]?.actual || 0;
+              totalPCount += kpiData[row.id]?.actual || 0;
+            });
+
+            // Calculate total L table (ผ่าตัด) - actual surgeries from L table data
+            let totalLCount = 0;
+            days.forEach((day) => {
+              const data = getMobileCalendarData(day);
+              totalLCount += data.lCount;
             });
 
             // Calculate individual sales data
@@ -994,12 +915,20 @@ export default function PerformanceSurgerySchedule() {
               days.forEach((day) => {
                 revenue += getCellRevenue(day, row.id);
               });
-              const surgeries = kpiData[row.id]?.actual || 0;
+              const pCount = kpiData[row.id]?.actual || 0;
+              
+              // Calculate L count for this row
+              let lCount = 0;
+              days.forEach((day) => {
+                lCount += getCellCount(day, row.id, "L");
+              });
+              
               return {
                 id: row.id,
                 name: row.name.replace("105-", "").replace("107-", "").replace("108-", ""),
                 revenue,
-                surgeries,
+                pCount,
+                lCount,
               };
             });
 
@@ -1015,9 +944,15 @@ export default function PerformanceSurgerySchedule() {
                     <div className="hero-label">รายรับรวม</div>
                     <div className="hero-value">{formatCurrency(totalRevenueActual)} ฿</div>
                   </div>
-                  <div className="hero-stat">
-                    <div className="hero-stat-value">{totalSurgeryActual}</div>
-                    <div className="hero-stat-label">ผ่าตัด</div>
+                  <div className="hero-stats-row">
+                    <div className="hero-stat-compact">
+                      <span className="hero-stat-value-compact">{totalPCount}</span>
+                      <span className="hero-stat-label-compact">ได้นัด</span>
+                    </div>
+                    <div className="hero-stat-compact">
+                      <span className="hero-stat-value-compact">{totalLCount}</span>
+                      <span className="hero-stat-label-compact">ผ่าตัด</span>
+                    </div>
                   </div>
                 </div>
 
@@ -1025,6 +960,7 @@ export default function PerformanceSurgerySchedule() {
                 <div className="sales-performance-list">
                   <div className="list-header">
                     <span>พนักงาน</span>
+                    <span>ได้นัด</span>
                     <span>ผ่าตัด</span>
                     <span>รายรับ</span>
                   </div>
@@ -1043,8 +979,11 @@ export default function PerformanceSurgerySchedule() {
                           ></span>
                           <span>{sale.name}</span>
                         </div>
-                        <div className="sales-surgeries">
-                          <span className="surgery-badge">{sale.surgeries}</span>
+                        <div className="sales-count">
+                          <span className="count-badge p-badge">{sale.pCount}</span>
+                        </div>
+                        <div className="sales-count">
+                          <span className="count-badge l-badge">{sale.lCount}</span>
                         </div>
                         <div className="sales-revenue">
                           <div className="revenue-bar-container">
@@ -1121,30 +1060,46 @@ export default function PerformanceSurgerySchedule() {
       {/* Mobile Calendar View - Combined Tables */}
       {!isLoading && !error && (
         <div className="mobile-calendar-container">
-          {/* Toggle Buttons */}
-          <div className="calendar-toggle-buttons">
-            <button
-              className={`calendar-toggle-btn ${showPTable ? "active p-active" : ""}`}
-              onClick={() => setShowPTable(!showPTable)}
-            >
-              <span className="toggle-icon">P</span>
-              <span className="toggle-label">ได้นัดผ่าตัด</span>
-            </button>
-            <button
-              className={`calendar-toggle-btn ${showLTable ? "active l-active" : ""}`}
-              onClick={() => setShowLTable(!showLTable)}
-            >
-              <span className="toggle-icon">L</span>
-              <span className="toggle-label">ผ่าตัด</span>
-            </button>
-            <button
-              className={`calendar-toggle-btn ${showRevenue ? "active r-active" : ""}`}
-              onClick={() => setShowRevenue(!showRevenue)}
-            >
-              <span className="toggle-icon">฿</span>
-              <span className="toggle-label">รายรับ</span>
-            </button>
-          </div>
+          {/* Toggle Buttons with Totals */}
+          {(() => {
+            // Calculate totals for the month
+            let totalP = 0;
+            let totalL = 0;
+            let totalRevenue = 0;
+            
+            days.forEach((day) => {
+              const data = getMobileCalendarData(day);
+              totalP += data.pCount;
+              totalL += data.lCount;
+              totalRevenue += data.revenue;
+            });
+
+            return (
+              <div className="calendar-toggle-buttons">
+                <button
+                  className={`calendar-toggle-btn ${showPTable ? "active p-active" : ""}`}
+                  onClick={() => setShowPTable(!showPTable)}
+                >
+                  <span className="toggle-value">{totalP}</span>
+                  <span className="toggle-label">ได้นัดผ่าตัด</span>
+                </button>
+                <button
+                  className={`calendar-toggle-btn ${showLTable ? "active l-active" : ""}`}
+                  onClick={() => setShowLTable(!showLTable)}
+                >
+                  <span className="toggle-value">{totalL}</span>
+                  <span className="toggle-label">ผ่าตัด</span>
+                </button>
+                <button
+                  className={`calendar-toggle-btn ${showRevenue ? "active r-active" : ""}`}
+                  onClick={() => setShowRevenue(!showRevenue)}
+                >
+                  <span className="toggle-value">{formatMobileRevenue(totalRevenue)}</span>
+                  <span className="toggle-label">รายรับ</span>
+                </button>
+              </div>
+            );
+          })()}
 
           {/* Calendar Grid */}
           <div className="mobile-calendar-grid">
