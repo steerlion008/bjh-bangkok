@@ -107,6 +107,10 @@ export default function PerformanceSurgerySchedule() {
   const [selectedFutureData, setSelectedFutureData] = useState<
     RevenueFutureData[]
   >([]);
+  // Mobile calendar view toggle states - all on by default
+  const [showPTable, setShowPTable] = useState(true);
+  const [showLTable, setShowLTable] = useState(true);
+  const [showRevenue, setShowRevenue] = useState(true);
   // Function to load surgery schedule data from Database
   const loadData = async (isManualRefresh = false) => {
     if (isManualRefresh) {
@@ -815,57 +819,127 @@ export default function PerformanceSurgerySchedule() {
     { id: "108-ว่าน", name: "108-ว่าน" },
     { id: "110-ส่วนกลาง", name: "ส่วนกลาง" },
   ];
+
+  // Helper function to get day of week for a date (0=Sunday, 1=Monday, etc.)
+  const getDayOfWeek = (day: number): number => {
+    return new Date(selectedYear, selectedMonth, day).getDay();
+  };
+
+  // Get first day of month (0=Sunday, 1=Monday, etc.)
+  const firstDayOfMonth = getDayOfWeek(1);
+
+  // Day names in Thai (Sunday first)
+  const dayNames = ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."];
+
+  // Calculate totals for each day for mobile calendar view
+  const getMobileCalendarData = (day: number) => {
+    // P table count (จำนวนที่ได้นัดผ่าตัด)
+    let pCount = 0;
+    pScheduleRows.forEach((row) => {
+      pCount += getCellCount(day, row.id, "P");
+    });
+
+    // L table count (จำนวนผ่าตัด)
+    let lCount = 0;
+    const parseDateStr = (dateStr: string | undefined): Date | null => {
+      if (!dateStr) return null;
+      try {
+        return new Date(dateStr);
+      } catch {
+        return null;
+      }
+    };
+
+    revenueScheduleRows.forEach((row) => {
+      const contactPerson = CONTACT_PERSON_MAPPING[row.id];
+      
+      // Count from N_Clinic
+      nClinicData.forEach((item) => {
+        const date = parseDateStr(item.income_date);
+        if (!date) return;
+        const itemDay = date.getDate();
+        const itemMonth = date.getMonth();
+        const itemYear = date.getFullYear();
+        if (itemMonth !== selectedMonth || itemYear !== selectedYear || itemDay !== day) return;
+        if (row.id === "105-จีน") {
+          if (item.staff_display_name === "จีน" || item.staff_display_name === "มุก") {
+            lCount++;
+          }
+        } else if (item.staff_display_name === contactPerson) {
+          lCount++;
+        }
+      });
+
+      // Count from Future
+      revenueFutureData.forEach((item) => {
+        const date = parseDateStr(item.surgery_date);
+        if (!date) return;
+        const itemDay = date.getDate();
+        const itemMonth = date.getMonth();
+        const itemYear = date.getFullYear();
+        if (itemMonth !== selectedMonth || itemYear !== selectedYear || itemDay !== day) return;
+        if (row.id === "105-จีน") {
+          if (item.contact_staff === "จีน" || item.contact_staff === "มุก") {
+            lCount++;
+          }
+        } else if (item.contact_staff === contactPerson) {
+          lCount++;
+        }
+      });
+    });
+
+    // Revenue total
+    let revenue = 0;
+    revenueScheduleRows.forEach((row) => {
+      revenue += getCellRevenue(day, row.id);
+    });
+
+    return { pCount, lCount, revenue };
+  };
+
+  // Format revenue for mobile display
+  const formatMobileRevenue = (amount: number): string => {
+    if (amount === 0) return "";
+    if (amount >= 1000000) {
+      return `${(amount / 1000000).toFixed(1)}M`;
+    }
+    if (amount >= 1000) {
+      return `${(amount / 1000).toFixed(0)}K`;
+    }
+    return amount.toString();
+  };
+
   return (
     <div className="surgery-schedule-container">
       <div className="schedule-header">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            marginBottom: "16px",
-          }}
-        >
+        {/* Mobile-friendly Header Bar */}
+        <div className="header-top-bar">
           <button
             onClick={() => router.push("/home")}
-            className="back-button"
-            style={{
-              padding: "8px 16px",
-              backgroundColor: "#4CAF50",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontSize: "14px",
-              fontWeight: "500",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              transition: "background-color 0.2s",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "#45a049")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "#4CAF50")
-            }
+            className="back-button-mobile"
           >
-            ← กลับไปหน้าหลัก
+            ← กลับ
+          </button>
+          <h1 className="page-title">Performance</h1>
+          <button
+            onClick={() => loadData(true)}
+            disabled={isRefreshing}
+            className="refresh-button-mobile"
+          >
+            {isRefreshing ? "🔄" : "↻"}
           </button>
         </div>
-        <h1 style={{ textAlign: "center", margin: "16px 0" }}>
-          Performance - นัดผ่าตัด
-        </h1>
-        {/* Calendar Controls */}
-        <div className="calendar-controls">
-          <button onClick={handlePreviousMonth} className="nav-button">
-            ◀ เดือนก่อน
+
+        {/* Month/Year Navigation - Compact for Mobile */}
+        <div className="calendar-controls-mobile">
+          <button onClick={handlePreviousMonth} className="nav-button-mobile">
+            ◀
           </button>
-          <div className="date-selectors">
+          <div className="date-display-mobile">
             <select
               value={selectedMonth}
               onChange={handleMonthChange}
-              className="month-select"
+              className="month-select-mobile"
             >
               {monthNames.map((month, index) => (
                 <option key={index} value={index}>
@@ -876,237 +950,24 @@ export default function PerformanceSurgerySchedule() {
             <select
               value={selectedYear}
               onChange={handleYearChange}
-              className="year-select"
+              className="year-select-mobile"
             >
               {yearOptions.map((year) => (
                 <option key={year} value={year}>
-                  {year + 543} {/* Convert to Buddhist Era */}
+                  {year + 543}
                 </option>
               ))}
             </select>
           </div>
-          <button onClick={handleNextMonth} className="nav-button">
-            เดือนถัดไป ▶
+          <button onClick={handleNextMonth} className="nav-button-mobile">
+            ▶
           </button>
         </div>
-        <div className="selected-month-display">
-          <strong>
-            เดือน {monthNames[selectedMonth]} {selectedYear + 543}
-          </strong>
-          <span className="days-count"> ({daysInMonth} วัน)</span>
-          {calculateWeekdaysToDate() > 0 && (
-            <span className="weekdays-count">
-              {" "}
-              | 🗓️ วันทำงานที่ผ่านมา: {calculateWeekdaysToDate()} วัน
-            </span>
-          )}
-        </div>
-        {/* Data Info and Refresh Button */}
       </div>
       {/* Team Summary Dashboard */}
       {!isLoading && !error && (
-        <div className="team-summary-dashboard">
-          {pScheduleRows.map((row, index) => {
-            const pActual = kpiData[row.id]?.actual || 0;
-            const pDiff = calculateDiff(row.id);
-            const pKpiToDate = kpiData[row.id]?.kpiToDate || 0;
-            // Calculate L table actual
-            let lActual = 0;
-            days.forEach((day) => {
-              lActual += getCellCount(day, row.id, "L");
-            });
-            // Calculate revenue actual
-            let revenueActual = 0;
-            days.forEach((day) => {
-              revenueActual += getCellRevenue(day, row.id);
-            });
-            // Calculate L diff (using same KPI as P table)
-            const lDiff = lActual - pKpiToDate;
-            const lKpiToDate = pKpiToDate;
-            // Calculate revenue diff
-            // For "105-จีน & มุก", multiply KPI by 2
-            const revenueKpiToDate =
-              row.id === "105-จีน"
-                ? pKpiToDate * 2 * 25000
-                : pKpiToDate * 25000;
-            const revenueDiff = revenueActual - revenueKpiToDate;
-            // Different color for each team
-            const teamColors = [
-              "team-color-1", // 105-จีน & มุก
-              "team-color-2", // 107-เจ
-              "team-color-3", // 108-ว่าน
-            ];
-            return (
-              <div
-                key={row.id}
-                className={`team-summary-card ${teamColors[index]}`}
-              >
-                <div className="team-summary-header">
-                  <h3>{row.name}</h3>
-                </div>
-                <div className="team-summary-body">
-                  <div className="summary-metric">
-                    <div className="metric-label">รายรับ</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">
-                          {formatCurrency(revenueKpiToDate)}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">
-                          {formatCurrency(revenueActual)}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            revenueDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {revenueDiff >= 0 ? "+" : "−"}
-                          {formatCurrency(Math.abs(revenueDiff))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="summary-metric">
-                    <div className="metric-label">จำนวนผ่าตัด</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">
-                          {row.id === "105-จีน" ? pKpiToDate * 2 : pKpiToDate}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">{pActual}</div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            pDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {pDiff >= 0 ? "+" : "−"}
-                          {Math.abs(pDiff)}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* <div className="summary-metric">
-                    <div className="metric-label">ว่าน</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">{lKpiToDate}</div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">{lActual}</div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            lDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {lDiff >= 0 ? "+" : ""}
-                          {lDiff.toFixed(1)}
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
-                </div>
-              </div>
-            );
-          })}
-          {/* ส่วนกลาง Summary Card */}
-          {(() => {
-            const row = { id: "110-ส่วนกลาง", name: "ส่วนกลาง" };
-            const pActual = kpiData[row.id]?.actual || 0;
-            const pDiff = calculateDiff(row.id);
-            const pKpiToDate = kpiData[row.id]?.kpiToDate || 0;
-
-            // Calculate revenue actual
-            let revenueActual = 0;
-            days.forEach((day) => {
-              revenueActual += getCellRevenue(day, row.id);
-            });
-
-            // Calculate revenue diff
-            const revenueKpiToDate = pKpiToDate * 25000;
-            const revenueDiff = revenueActual - revenueKpiToDate;
-
-            return (
-              <div key={row.id} className="team-summary-card team-color-4">
-                <div className="team-summary-header">
-                  <h3>{row.name}</h3>
-                </div>
-                <div className="team-summary-body">
-                  <div className="summary-metric">
-                    <div className="metric-label">รายรับ</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">
-                          {formatCurrency(revenueKpiToDate)}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">
-                          {formatCurrency(revenueActual)}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            revenueDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {revenueDiff >= 0 ? "+" : "−"}
-                          {formatCurrency(Math.abs(revenueDiff))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="summary-metric">
-                    <div className="metric-label">จำนวนผ่าตัด</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">{pKpiToDate}</div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">{pActual}</div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            pDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {pDiff >= 0 ? "+" : "−"}
-                          {Math.abs(pDiff)}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
-          {/* รวมทั้งหมด Summary Card */}
+        <div className="mobile-summary-container">
+          {/* Total Revenue Hero */}
           {(() => {
             const allRows = [
               ...pScheduleRows,
@@ -1121,96 +982,87 @@ export default function PerformanceSurgerySchedule() {
               });
             });
 
-            // Calculate total revenue KPI to date
-            let totalRevenueKpiToDate = 0;
-            allRows.forEach((row) => {
-              const pKpiToDate = kpiData[row.id]?.kpiToDate || 0;
-              const multiplier = row.id === "105-จีน" ? 2 : 1;
-              totalRevenueKpiToDate += pKpiToDate * multiplier * 25000;
-            });
-
-            // Calculate total revenue diff
-            const totalRevenueDiff = totalRevenueActual - totalRevenueKpiToDate;
-
             // Calculate total surgery actual
             let totalSurgeryActual = 0;
             allRows.forEach((row) => {
               totalSurgeryActual += kpiData[row.id]?.actual || 0;
             });
 
-            // Calculate total surgery KPI to date
-            let totalSurgeryKpiToDate = 0;
-            allRows.forEach((row) => {
-              const pKpiToDate = kpiData[row.id]?.kpiToDate || 0;
-              const multiplier = row.id === "105-จีน" ? 2 : 1;
-              totalSurgeryKpiToDate += pKpiToDate * multiplier;
+            // Calculate individual sales data
+            const salesData = [...pScheduleRows, { id: "110-ส่วนกลาง", name: "ส่วนกลาง" }].map((row) => {
+              let revenue = 0;
+              days.forEach((day) => {
+                revenue += getCellRevenue(day, row.id);
+              });
+              const surgeries = kpiData[row.id]?.actual || 0;
+              return {
+                id: row.id,
+                name: row.name.replace("105-", "").replace("107-", "").replace("108-", ""),
+                revenue,
+                surgeries,
+              };
             });
 
-            // Calculate total surgery diff
-            const totalSurgeryDiff = totalSurgeryActual - totalSurgeryKpiToDate;
+            // Sort by revenue descending
+            salesData.sort((a, b) => b.revenue - a.revenue);
 
             return (
-              <div key="total" className="team-summary-card team-color-pink">
-                <div className="team-summary-header">
-                  <h3>รวมทั้งหมด</h3>
-                </div>
-                <div className="team-summary-body">
-                  <div className="summary-metric">
-                    <div className="metric-label">รายรับ</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">
-                          {formatCurrency(totalRevenueKpiToDate)}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">
-                          {formatCurrency(totalRevenueActual)}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            totalRevenueDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {totalRevenueDiff >= 0 ? "+" : "−"}
-                          {formatCurrency(Math.abs(totalRevenueDiff))}
-                        </div>
-                      </div>
-                    </div>
+              <>
+                {/* Hero Section - Total Revenue */}
+                <div className="summary-hero">
+                  <div className="hero-icon">💰</div>
+                  <div className="hero-content">
+                    <div className="hero-label">รายรับรวม</div>
+                    <div className="hero-value">{formatCurrency(totalRevenueActual)} ฿</div>
                   </div>
-                  <div className="summary-metric">
-                    <div className="metric-label">จำนวนผ่าตัด</div>
-                    <div className="metric-row">
-                      <div className="metric-item">
-                        <div className="metric-title">KPI to date</div>
-                        <div className="metric-value">
-                          {totalSurgeryKpiToDate}
-                        </div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Actual</div>
-                        <div className="metric-value">{totalSurgeryActual}</div>
-                      </div>
-                      <div className="metric-item">
-                        <div className="metric-title">Diff</div>
-                        <div
-                          className={`metric-value ${
-                            totalSurgeryDiff >= 0 ? "positive" : "negative"
-                          }`}
-                        >
-                          {totalSurgeryDiff >= 0 ? "+" : "−"}
-                          {Math.abs(totalSurgeryDiff)}
-                        </div>
-                      </div>
-                    </div>
+                  <div className="hero-stat">
+                    <div className="hero-stat-value">{totalSurgeryActual}</div>
+                    <div className="hero-stat-label">ผ่าตัด</div>
                   </div>
                 </div>
-              </div>
+
+                {/* Sales Performance List */}
+                <div className="sales-performance-list">
+                  <div className="list-header">
+                    <span>พนักงาน</span>
+                    <span>ผ่าตัด</span>
+                    <span>รายรับ</span>
+                  </div>
+                  {salesData.map((sale, index) => {
+                    const percentage = totalRevenueActual > 0 
+                      ? (sale.revenue / totalRevenueActual) * 100 
+                      : 0;
+                    const colors = ["#8b5cf6", "#10b981", "#f59e0b", "#6366f1"];
+                    
+                    return (
+                      <div key={sale.id} className="sales-row">
+                        <div className="sales-name">
+                          <span 
+                            className="sales-indicator" 
+                            style={{ background: colors[index % colors.length] }}
+                          ></span>
+                          <span>{sale.name}</span>
+                        </div>
+                        <div className="sales-surgeries">
+                          <span className="surgery-badge">{sale.surgeries}</span>
+                        </div>
+                        <div className="sales-revenue">
+                          <div className="revenue-bar-container">
+                            <div 
+                              className="revenue-bar" 
+                              style={{ 
+                                width: `${Math.min(percentage, 100)}%`,
+                                background: colors[index % colors.length]
+                              }}
+                            ></div>
+                          </div>
+                          <span className="revenue-value">{formatMobileRevenue(sale.revenue)}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
             );
           })()}
         </div>
@@ -1265,8 +1117,122 @@ export default function PerformanceSurgerySchedule() {
           </div>
         </div>
       )}
+
+      {/* Mobile Calendar View - Combined Tables */}
+      {!isLoading && !error && (
+        <div className="mobile-calendar-container">
+          {/* Toggle Buttons */}
+          <div className="calendar-toggle-buttons">
+            <button
+              className={`calendar-toggle-btn ${showPTable ? "active p-active" : ""}`}
+              onClick={() => setShowPTable(!showPTable)}
+            >
+              <span className="toggle-icon">P</span>
+              <span className="toggle-label">ได้นัดผ่าตัด</span>
+            </button>
+            <button
+              className={`calendar-toggle-btn ${showLTable ? "active l-active" : ""}`}
+              onClick={() => setShowLTable(!showLTable)}
+            >
+              <span className="toggle-icon">L</span>
+              <span className="toggle-label">ผ่าตัด</span>
+            </button>
+            <button
+              className={`calendar-toggle-btn ${showRevenue ? "active r-active" : ""}`}
+              onClick={() => setShowRevenue(!showRevenue)}
+            >
+              <span className="toggle-icon">฿</span>
+              <span className="toggle-label">รายรับ</span>
+            </button>
+          </div>
+
+          {/* Calendar Grid */}
+          <div className="mobile-calendar-grid">
+            {/* Day Headers */}
+            <div className="calendar-header-row">
+              {dayNames.map((name, index) => (
+                <div
+                  key={`header-${index}`}
+                  className={`calendar-header-cell ${index === 0 || index === 6 ? "weekend" : ""}`}
+                >
+                  {name}
+                </div>
+              ))}
+            </div>
+
+            {/* Calendar Days */}
+            <div className="calendar-days-grid">
+              {/* Empty cells for days before the 1st */}
+              {Array.from({ length: firstDayOfMonth }, (_, i) => (
+                <div key={`empty-${i}`} className="calendar-day-cell empty"></div>
+              ))}
+
+              {/* Actual days */}
+              {days.map((day) => {
+                const data = getMobileCalendarData(day);
+                const dayOfWeek = getDayOfWeek(day);
+                const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                const isToday =
+                  day === new Date().getDate() &&
+                  selectedMonth === new Date().getMonth() &&
+                  selectedYear === new Date().getFullYear();
+                const hasData = data.pCount > 0 || data.lCount > 0 || data.revenue > 0;
+
+                return (
+                  <div
+                    key={`day-${day}`}
+                    className={`calendar-day-cell ${isWeekend ? "weekend" : ""} ${isToday ? "today" : ""} ${hasData ? "has-data" : ""}`}
+                  >
+                    <div className="day-number">{day}</div>
+                    <div className="day-data">
+                      {showPTable && data.pCount > 0 && (
+                        <div className="data-item p-data" title={`นัดผ่าตัด: ${data.pCount}`}>
+                          <span className="data-badge">{data.pCount}</span>
+                        </div>
+                      )}
+                      {showLTable && data.lCount > 0 && (
+                        <div className="data-item l-data" title={`ผ่าตัด: ${data.lCount}`}>
+                          <span className="data-badge">{data.lCount}</span>
+                        </div>
+                      )}
+                      {showRevenue && data.revenue > 0 && (
+                        <div className="data-item r-data" title={`รายรับ: ${formatCurrency(data.revenue)} บาท`}>
+                          <span className="data-badge">{formatMobileRevenue(data.revenue)}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div className="calendar-legend">
+            {showPTable && (
+              <div className="legend-item">
+                <span className="legend-color p-color"></span>
+                <span className="legend-text">นัดผ่าตัด (P)</span>
+              </div>
+            )}
+            {showLTable && (
+              <div className="legend-item">
+                <span className="legend-color l-color"></span>
+                <span className="legend-text">ผ่าตัด (L)</span>
+              </div>
+            )}
+            {showRevenue && (
+              <div className="legend-item">
+                <span className="legend-color r-color"></span>
+                <span className="legend-text">รายรับ</span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Table - วันที่ได้นัดผ่า P */}
-      <div className="table-section ">
+      <div className="table-section desktop-only">
         <div className="table-wrapper" ref={pTableRef}>
           <table className="schedule-table">
             <thead>
@@ -1322,7 +1288,7 @@ export default function PerformanceSurgerySchedule() {
         </div>
       </div>
       {/* Table - วันที่ผ่าตัด L */}
-      <div className="table-section">
+      <div className="table-section desktop-only">
         <div className="table-wrapper" ref={lTableRef}>
           <table className="schedule-table">
             <thead>
@@ -1563,7 +1529,7 @@ export default function PerformanceSurgerySchedule() {
         </div>
       </div>
       {/* Table - ประมาณการรายรับ */}
-      <div className="table-section">
+      <div className="table-section desktop-only">
         <div className="table-wrapper" ref={revenueTableRef}>
           <table className="schedule-table">
             <thead>
