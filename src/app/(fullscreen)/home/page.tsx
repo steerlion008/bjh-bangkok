@@ -315,23 +315,7 @@ export default function FullscreenHomePage() {
     // Marketing
     {
       key: "branding_dashboard",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
       label: "Branding Dashboard",
-=======
-      label: "ERM Dashboard",
->>>>>>> Stashed changes
-=======
-      label: "ERM Dashboard",
->>>>>>> Stashed changes
-=======
-      label: "ERM Dashboard",
->>>>>>> Stashed changes
-=======
-      label: "ERM Dashboard",
->>>>>>> Stashed changes
       labelTh: "ภาพรวมการตลาดและแบรนด์",
       link: "/branding-dashboard",
       icon: <FaChartLine />,
@@ -397,23 +381,7 @@ export default function FullscreenHomePage() {
       key: "booking_dashboard",
       label: "Booking Dashboard",
       labelTh: "ภาพรวมการจองและนัดหมาย",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
       link: "/booking-dashboard",
-=======
-      link: "/crm-advanced",
->>>>>>> Stashed changes
-=======
-      link: "/crm-advanced",
->>>>>>> Stashed changes
-=======
-      link: "/crm-advanced",
->>>>>>> Stashed changes
-=======
-      link: "/crm-advanced",
->>>>>>> Stashed changes
       icon: <FaCalendarCheck />,
       color: "from-purple-500 to-indigo-600",
       category: "Sales & CRM",
